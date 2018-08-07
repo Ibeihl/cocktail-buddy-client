@@ -21,7 +21,8 @@ export const searchDrink = searchTerm => dispatch => {
     dispatch(searchDrinkRequest());
     fetch(`${API_BASE_URL}/drinks/?search=${searchTerm}`)
       .then(res => res.json())
-      .then(data => data.map(drink => drink.name)) 
-      .then(names => dispatch(searchDrinkSuccess(names)))
+    //   .then(data => data.map(drink => drink.name)) 
+    //   .then(names => dispatch(searchDrinkSuccess(names)))
+    .then(drinks => dispatch(searchDrinkSuccess(drinks)))
       .catch(error => dispatch(searchDrinkError(error)))                      
 }         

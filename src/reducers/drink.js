@@ -14,7 +14,6 @@ export function drinkReducer(state = initialState, action) {
     if (action.type === SEARCH_DRINK_REQUEST) {
         return Object.assign({}, state, {
             loading: true,
-            searchTerm: action.searchTerm
         })
     }
     else if (action.type === SEARCH_DRINK_SUCCESS) {

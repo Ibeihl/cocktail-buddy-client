@@ -1,19 +1,40 @@
 import React from 'react';
-import {connect}  from 'react-redux';
-import {searchDrink} from '../actions/drink';
+import { connect } from 'react-redux';
+import { searchDrink } from '../actions/drink';
 import './drink-list.css';
 
 export class DrinkList extends React.Component {
+
     renderResults() {
-        if(this.props.loading) {
+        if (this.props.loading) {
             return <strong>loading....</strong>;
         }
-        if(this.props.error) {
+        if (this.props.error) {
             return <strong>{this.props.error}</strong>;
         }
-
-        const drinks = this.props.drinks.map((drink, index) => 
-            <li key={index}>{drink}</li>
+        const drinks = this.props.drinks.map((drink, index) => {
+            const ingredients = drink.ingredients.map((ingredient, index) =>
+                <li key={index}>
+                    {ingredient}
+                </li>
+            );
+            return (
+                <li key={index} className="drink-list-item">
+                    <img src={drink.photo}/>
+                    <h2>{drink.name}</h2>
+                    <ul>
+                        <h3>Ingredients</h3>
+                        {ingredients}
+                    </ul>
+                    <ul>
+                        <li>Style: {drink.method}</li>
+                        <li>Egg White: {drink.eggWhite}</li>
+                        <li>Glass: {drink.glass}</li>
+                        <li>Instructions: {drink.instructions}</li>
+                    </ul>
+                </li>
+            )
+        }
         );
 
         return (
@@ -36,6 +57,7 @@ export class DrinkList extends React.Component {
     }
 
     render() {
+        console.log(this.props.drinks);
         return (
             <div className="drink-search">
                 <form onSubmit={(e) => this.search(e)}>

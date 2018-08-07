@@ -1,4 +1,11 @@
 li {
     list-style-type: none;
-    text-align: left;
+    text-align: left
+}
+img {
+    width: auto;
+    height: 200px
+}
+.drink-list-item {
+    margin-bottom: 30px
 }
