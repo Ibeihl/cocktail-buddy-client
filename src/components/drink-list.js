@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { searchDrink } from '../actions/drink';
 import './drink-list.css';
+import AdvancedSearch from './advanced-search';
 
 export class DrinkList extends React.Component {
 
@@ -20,7 +21,7 @@ export class DrinkList extends React.Component {
             );
             return (
                 <li key={index} className="drink-list-item">
-                    <img src={drink.photo} alt={drink.name}/>
+                    <img src={drink.photo} alt={drink.name} />
                     <h2>{drink.name}</h2>
                     <ul>
                         <h3>Ingredients</h3>
@@ -64,20 +65,21 @@ export class DrinkList extends React.Component {
                     <input type="search" ref={input => this.input = input} />
                     <button>Search</button>
                 </form>
+                <AdvancedSearch />
                 <ul className="drink-results">
                     {this.renderResults()}
                 </ul>
             </div>
-        );
-    }
+                );
+            }
 
-};
+        };
 
 
 const mapStateToProps = state => ({
-    loading: state.loading,
-    error: state.error,
-    drinks: state.drinks,
-});
-
+                    loading: state.loading,
+            error: state.error,
+            drinks: state.drinks,
+        });
+        
 export default connect(mapStateToProps)(DrinkList);
