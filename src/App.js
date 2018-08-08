@@ -6,9 +6,6 @@ import Welcome from './components/welcome';
 import Footer from './components/footer';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

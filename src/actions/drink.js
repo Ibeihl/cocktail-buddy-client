@@ -17,6 +17,10 @@ export const searchDrinkError = error => ({
     error
 });
 
+
+//how do i pass more search criteria to the AJAX request???
+//in the request body.....?
+
 export const searchDrink = searchTerm => dispatch => {
     dispatch(searchDrinkRequest());
     fetch(`${API_BASE_URL}/drinks/?search=${searchTerm}`)

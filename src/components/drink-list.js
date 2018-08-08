@@ -20,7 +20,7 @@ export class DrinkList extends React.Component {
             );
             return (
                 <li key={index} className="drink-list-item">
-                    <img src={drink.photo}/>
+                    <img src={drink.photo} alt={drink.name}/>
                     <h2>{drink.name}</h2>
                     <ul>
                         <h3>Ingredients</h3>
@@ -28,7 +28,7 @@ export class DrinkList extends React.Component {
                     </ul>
                     <ul>
                         <li>Style: {drink.method}</li>
-                        <li>Egg White: {drink.eggWhite}</li>
+                        <li>Has Egg White: {drink.eggWhite}</li>
                         <li>Glass: {drink.glass}</li>
                         <li>Instructions: {drink.instructions}</li>
                     </ul>
