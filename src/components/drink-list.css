@@ -1,15 +1,41 @@
-li {
-    list-style-type: none;
-    text-align: left
-}
-img {
+.result-img {
     width: auto;
-    height: 200px
+    height: 100px;
+    float: left;
+    margin: 0 15px 0 0;
 }
 .drink-list-item {
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    margin-left: -60px;
+    list-style-type: none;
+    text-align: left;
+    overflow: auto;
+    background: #eee;
+    cursor: pointer;
+    display: block;
+    width: 440px
 }
 
 .slider {
     background-color: #ccc;
+}
+.ingredient-list {
+}
+.drink-atr {
+    list-style-type: none;
+    margin-right: 15px;
+    margin-top: 15px;
+    float: center
+
+}
+.ingredient-header{
+    margin-top: 70px;
+    margin-bottom: 5px
+}
+.search-button {
+    background-color:  #eee
+}
+.search-input {
+    background-color:  #eee;
+    margin: 20px
 }

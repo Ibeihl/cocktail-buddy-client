@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toggleAdvancedSearch } from '../actions/advanced-search';
 import SearchCriteria from './search-criteria';
+import './advanced-search.css';
 
 export class AdvancedSearch extends React.Component {
 
@@ -14,7 +15,7 @@ export class AdvancedSearch extends React.Component {
         }
         return (
             <div className="advanced-search">
-                <button type="button" onClick={() => this.props.dispatch(toggleAdvancedSearch())}>More Search Criteria?</button>
+                <button className="toggle-search-btn" type="button" onClick={() => this.props.dispatch(toggleAdvancedSearch())}>More Search Criteria?</button>
                 {searchArea}            
             </div>
         )

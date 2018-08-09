@@ -4,8 +4,10 @@ import {
     SEARCH_DRINK_SUCCESS
 } from '../actions/drink';
 import {TOGGLE_ADVANCED_SEARCH} from '../actions/advanced-search'
+import {CHECK_SHAKEN_BOX, CHECK_STIRRED_BOX} from '../actions/search-criteria'
 
 const initialState = {
+    searchMethod: null,
     advancedSearch: false,
     drinks: [],
     loading: false,
@@ -13,6 +15,16 @@ const initialState = {
 };
 
 export function drinkReducer(state = initialState, action) {
+    if (action.type === CHECK_SHAKEN_BOX) {
+        return Object.assign({}, state, {
+            searchMethod: "shaken"
+        })
+    }
+    if (action.type === CHECK_STIRRED_BOX) {
+        return Object.assign({}, state, {
+            searchMethod: "stirred"
+        })
+    }
     if (action.type === TOGGLE_ADVANCED_SEARCH) {
         return Object.assign({}, state, {
             advancedSearch: !state.advancedSearch

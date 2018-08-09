@@ -15,39 +15,46 @@ export class DrinkList extends React.Component {
         }
         const drinks = this.props.drinks.map((drink, index) => {
             const ingredients = drink.ingredients.map((ingredient, index) =>
-                <li key={index}>
+                <li key={index} className="ingredient-list">
                     {ingredient}
                 </li>
             );
+  
             return (
                 <li key={index} className="drink-list-item">
-                    <img src={drink.photo} alt={drink.name} />
+                    <img className="result-img" src={drink.photo} alt={drink.name} />
                     <h2>{drink.name}</h2>
-                    <ul>
-                        <h3>Ingredients</h3>
+                    <div>
+                    <ul className="ingredient-list">
+                        <h3 className="ingredient-header">Ingredients</h3>
                         {ingredients}
                     </ul>
+                    </div>
                     <ul>
-                        <li>Style: {drink.method}</li>
-                        <li>Has Egg White: {drink.eggWhite}</li>
-                        <li>Glass: {drink.glass}</li>
-                        <li>Instructions: {drink.instructions}</li>
+                        <li className="drink-atr"><strong>Style: </strong>{drink.method}</li>
+                        <li className="drink-atr"><strong>Has Egg White: </strong>{drink.eggWhite}</li>
+                        <li className="drink-atr"><strong>Glass: </strong>{drink.glass}</li>
+                        <li className="drink-atr"><strong>Instructions: </strong>{drink.instructions}</li>
                     </ul>
                 </li>
             )
         }
         );
-
+        let drinkCount;
+        if (this.props.drinks.length === 0){
+            drinkCount = '';
+        } else {
+            drinkCount = <h4>{this.props.drinks.length} drinks found</h4>
+        }
         return (
-            <ul className="drink-results">
-                {drinks}
-            </ul>
+            <div className="drink-results">
+               {drinkCount}
+                <ul>
+                    {drinks}
+                </ul>
+            </div>
         );
     }
-
-    // componentDidMount() {
-    //     this.props.dispatch(fetchDrink());
-    // }
 
     search(e) {
         e.preventDefault();
@@ -61,11 +68,13 @@ export class DrinkList extends React.Component {
         console.log(this.props.drinks);
         return (
             <div className="drink-search">
+                <div>
                 <form onSubmit={(e) => this.search(e)}>
-                    <input type="search" ref={input => this.input = input} />
-                    <button>Search</button>
+                    <input className="search-input" type="search" ref={input => this.input = input} />
+                    <button className="search-button">Search</button>
                 </form>
                 <AdvancedSearch />
+                </div>
                 <ul className="drink-results">
                     {this.renderResults()}
                 </ul>
