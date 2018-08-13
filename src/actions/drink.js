@@ -1,5 +1,11 @@
 import {API_BASE_URL} from '../config';
 
+export const SET_SEARCH_TERM_QUERY = 'SET_SEARCH_TERM_QUERY';
+export const setSearchTerm = searchTermQuery => ({
+    type: SET_SEARCH_TERM_QUERY,
+    searchTermQuery
+});
+
 export const SEARCH_DRINK_REQUEST = 'SEARCH_DRINK_REQUEST';
 export const searchDrinkRequest = () => ({
     type: SEARCH_DRINK_REQUEST
@@ -17,16 +23,30 @@ export const searchDrinkError = error => ({
     error
 });
 
+// export const searchDrink = (searchTerm, criteriaObj ) => dispatch => {
+//     dispatch(searchDrinkRequest());
+//     fetch(`${API_BASE_URL}/drinks/?search=${searchTerm}`,{
+//         method: "GET",
+//         body: methodQuery eggWhiteQuery ingredientsQuery
+//     })
+//       .then(res => res.json())
+//       .then(drinks => dispatch(searchDrinkSuccess(drinks)))
+//       .catch(error => dispatch(searchDrinkError(error)))                      
+// }
 
-//how do i pass more search criteria to the AJAX request???
-//in the request body.....?
-
-export const searchDrink = searchTerm => dispatch => {
+export const searchDrink = (searchTermQuery, methodQuery, eggWhiteQuery, ingredientsQuery) => dispatch => {
     dispatch(searchDrinkRequest());
-    fetch(`${API_BASE_URL}/drinks/?search=${searchTerm}`)
+    fetch(`${API_BASE_URL}/drinks/?${searchTermQuery}${methodQuery}${eggWhiteQuery}${ingredientsQuery}`)
       .then(res => res.json())
-    //   .then(data => data.map(drink => drink.name)) 
-    //   .then(names => dispatch(searchDrinkSuccess(names)))
-    .then(drinks => dispatch(searchDrinkSuccess(drinks)))
+      .then(drinks => dispatch(searchDrinkSuccess(drinks)))
       .catch(error => dispatch(searchDrinkError(error)))                      
-}         
+}
+
+
+
+// export const refineResults = (searchTerm, method, ingredients, eggWhite ) => dispatch => {
+//     fetch(`${API_BASE_URL}/drinks/?search=${searchTerm}&method=true&ingredients=butts`)
+//       .then(res => res.json())
+//       .then(drinks => dispatch(searchDrinkSuccess(drinks)))
+//       .catch(error => dispatch(searchDrinkError(error)))                      
+// }         

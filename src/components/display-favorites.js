@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleAdvancedSearch } from '../actions/advanced-search';
-import SearchCriteria from './search-criteria';
+
 import './advanced-search.css';
 
-export class AdvancedSearch extends React.Component {
+export class DisplayFavorites extends React.Component {
 
     render(){
         let searchArea;
-        console.log(this.props.advancedSearch);
         if (this.props.advancedSearch === false){
             searchArea = '';
         } else {
@@ -24,7 +23,7 @@ export class AdvancedSearch extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    advancedSearch: state.drink.advancedSearch
+    displayFavorites: state.displayFavorites,
 });
 
-export default connect(mapStateToProps)(AdvancedSearch);
+export default connect(mapStateToProps)(DisplayFavorites);

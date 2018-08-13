@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { searchDrink } from '../actions/drink';
+import { searchDrink, setSearchTerm } from '../actions/drink';
 import './drink-list.css';
 import AdvancedSearch from './advanced-search';
 
@@ -61,11 +61,11 @@ export class DrinkList extends React.Component {
         if (this.input.value.trim() === '') {
             return;
         }
-        this.props.dispatch(searchDrink(this.input.value))
+        this.props.dispatch(setSearchTerm(`search=${this.input.value}`));
+        this.props.dispatch(searchDrink(`search=${this.input.value}`, '', '', ''));
     }
 
     render() {
-        console.log(this.props.drinks);
         return (
             <div className="drink-search">
                 <div>
@@ -86,9 +86,9 @@ export class DrinkList extends React.Component {
 
 
 const mapStateToProps = state => ({
-                    loading: state.loading,
-            error: state.error,
-            drinks: state.drinks,
+            loading: state.drink.loading,
+            error: state.drink.error,
+            drinks: state.drink.drinks,
         });
         
 export default connect(mapStateToProps)(DrinkList);

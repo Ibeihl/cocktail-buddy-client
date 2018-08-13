@@ -5,15 +5,16 @@
     margin: 0 15px 0 0;
 }
 .drink-list-item {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     margin-left: -60px;
+    margin-right: 10px;
     list-style-type: none;
     text-align: left;
     overflow: auto;
     background: #eee;
     cursor: pointer;
     display: block;
-    width: 440px
+    width: 380px
 }
 
 .slider {
