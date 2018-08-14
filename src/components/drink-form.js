@@ -3,16 +3,19 @@ import './drink-form.css';
 import {Field, reduxForm} from 'redux-form';
 import {addDrink} from '../actions/addDrink';
 import {required} from './validators';
+import {connect} from 'react-redux';
 import Input from './input';
 
 export class DrinkForm extends React.Component {
     onSubmit(values) {
         console.log(values);
+        //can i map state to props in a reduxform? so i can attach a user id??
+        const user = this.props.currentUser.username;
         const {name, method, eggWhite, glass, ingredient1,
              ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, instructions, photo} = values;
         let inputIngredients = [ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6];
         let ingredients = inputIngredients.filter(ingredient => ingredient !== undefined);
-        const newDrink = {name, method, eggWhite, glass, ingredients, instructions, photo};
+        const newDrink = {name, method, eggWhite, glass, ingredients, instructions, photo, user};
         return this.props
             .dispatch(addDrink(newDrink));
     }
@@ -78,6 +81,10 @@ export class DrinkForm extends React.Component {
     }
 }
 
-export default reduxForm({
+const mapStateToProps = state => ({
+    currentUser: state.auth.currentUser
+});
+
+export default connect(mapStateToProps)(reduxForm({
     form: 'drink'
-})(DrinkForm);
+})(DrinkForm));

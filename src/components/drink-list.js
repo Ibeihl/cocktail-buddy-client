@@ -4,11 +4,21 @@ import { searchDrink, setSearchTerm } from '../actions/drink';
 import './drink-list.css';
 import AdvancedSearch from './advanced-search';
 import {Redirect} from 'react-router-dom';
+import {removeDrink} from '../actions/removeDrink';
 
 export class DrinkList extends React.Component {
     // componentDidMount() {
     //     console.log(localStorage.getItem('authToken'))
     // }
+
+    handleDelete(e) {
+        console.log(e.target.id);
+        let drinkId = e.target.id; 
+        this.props.dispatch(removeDrink(drinkId));
+        
+        //need to pull drink data, attach to username, then make
+        //a delete request to remove drink from db
+    }
 
     renderResults() {
         if (this.props.loading) {
@@ -17,15 +27,20 @@ export class DrinkList extends React.Component {
         if (this.props.error) {
             return <strong>{this.props.error}</strong>;
         }
-        const drinks = this.props.drinks.map((drink, index) => {
+        const drinks = this.props.drinks.map((drink) => {
             const ingredients = drink.ingredients.map((ingredient, index) =>
                 <li key={index} className="ingredient-list">
                     {ingredient}
                 </li>
             );
-  
+            let deleteButton = '';
+            if (drink.user !== null) {
+                deleteButton =
+                <button id={drink.id} onClick={(e) => this.handleDelete(e)}>Remove your drink</button>
+
+            }
             return (
-                <li key={index} className="drink-list-item">
+                <li key={drink.id} className="drink-list-item">
                     <img className="result-img" src={drink.photo} alt={drink.name} />
                     <h2>{drink.name}</h2>
                     <div>
@@ -40,6 +55,7 @@ export class DrinkList extends React.Component {
                         <li className="drink-atr"><strong>Glass: </strong>{drink.glass}</li>
                         <li className="drink-atr"><strong>Instructions: </strong>{drink.instructions}</li>
                     </ul>
+                    {deleteButton}
                 </li>
             )
         }
@@ -74,10 +90,10 @@ export class DrinkList extends React.Component {
     }
 
     render() {
-        // console.log(this.props);
-        if (this.props.loggedIn === null) {
-            // return <Redirect to="/login" />
-        }
+        // // console.log(this.props);
+        // if (this.props.loggedIn === null) {
+        //     // return <Redirect to="/login" />
+        // }
         return (
             <div className="drink-search">
                 <div>

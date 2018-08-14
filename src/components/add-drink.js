@@ -6,6 +6,7 @@ import DrinkForm from './drink-form';
 export class AddDrink extends React.Component {
 
     render(){
+        console.log(this.props.currentUser);
         let drinkForm;
         if(this.props.addDrink === false){
             drinkForm = '';
@@ -22,7 +23,8 @@ export class AddDrink extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    addDrink: state.drink.addDrink
+    addDrink: state.drink.addDrink,
+    currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(AddDrink);
