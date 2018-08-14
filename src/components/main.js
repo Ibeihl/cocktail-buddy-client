@@ -3,12 +3,11 @@ import DrinkList from './drink-list';
 import AddDrink from './add-drink';
 import AddDrinkBtn from './add-drink-btn';
 import UserGreeting from './user-greeting';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchProtectedData } from '../actions/protected-data';
 import requiresLogin from './requires-login';
 import {loadAuthToken} from '../local-storage';
-import {setAuthToken, refreshAuthToken} from '../actions/auth';
+import {setAuthToken} from '../actions/auth';
+// import {refreshAuthToken} from '../actions/auth';
 
 export class Main extends React.Component {
     componentDidMount() {
@@ -28,7 +27,6 @@ export class Main extends React.Component {
                 <AddDrink />
                 <DrinkList />
             </div>
-
         )
     }
 }

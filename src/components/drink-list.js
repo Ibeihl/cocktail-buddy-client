@@ -3,21 +3,12 @@ import { connect } from 'react-redux';
 import { searchDrink, setSearchTerm } from '../actions/drink';
 import './drink-list.css';
 import AdvancedSearch from './advanced-search';
-import {Redirect} from 'react-router-dom';
 import {removeDrink} from '../actions/removeDrink';
 
 export class DrinkList extends React.Component {
-    // componentDidMount() {
-    //     console.log(localStorage.getItem('authToken'))
-    // }
-
     handleDelete(e) {
-        console.log(e.target.id);
         let drinkId = e.target.id; 
         this.props.dispatch(removeDrink(drinkId));
-        
-        //need to pull drink data, attach to username, then make
-        //a delete request to remove drink from db
     }
 
     renderResults() {
@@ -82,7 +73,7 @@ export class DrinkList extends React.Component {
             return;
         }
         this.props.dispatch(setSearchTerm(`search=${this.input.value}`));
-        this.props.dispatch(searchDrink(`search=${this.input.value}`, '', '', ''));
+        this.props.dispatch(searchDrink(`search=${this.input.value}`, '', '', '', this.props.authToken));
     }
 
     componentWillUpdate(nextProps){
@@ -90,10 +81,6 @@ export class DrinkList extends React.Component {
     }
 
     render() {
-        // // console.log(this.props);
-        // if (this.props.loggedIn === null) {
-        //     // return <Redirect to="/login" />
-        // }
         return (
             <div className="drink-search">
                 <div>
@@ -111,7 +98,6 @@ export class DrinkList extends React.Component {
             </div>
                 );
             }
-
         };
 
 
@@ -119,8 +105,8 @@ const mapStateToProps = state => ({
             loading: state.drink.loading,
             error: state.drink.error,
             drinks: state.drink.drinks,
-            loggedIn: state.auth.authToken
-
+            loggedIn: state.auth.authToken,
+            authToken: state.auth.authToken
         });
         
 export default connect(mapStateToProps)(DrinkList);

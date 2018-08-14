@@ -34,9 +34,14 @@ export const searchDrinkError = error => ({
 //       .catch(error => dispatch(searchDrinkError(error)))                      
 // }
 
-export const searchDrink = (searchTermQuery, methodQuery, eggWhiteQuery, ingredientsQuery) => dispatch => {
+export const searchDrink = (searchTermQuery, methodQuery, eggWhiteQuery, ingredientsQuery) => (dispatch, getState) => {
+    const token = getState().auth.authToken;
     dispatch(searchDrinkRequest());
-    fetch(`${API_BASE_URL}/drinks/?${searchTermQuery}${methodQuery}${eggWhiteQuery}${ingredientsQuery}`)
+    fetch(`${API_BASE_URL}/drinks/?${searchTermQuery}${methodQuery}${eggWhiteQuery}${ingredientsQuery}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
       .then(res => res.json())
       .then(drinks => dispatch(searchDrinkSuccess(drinks)))
       .catch(error => dispatch(searchDrinkError(error)))                      

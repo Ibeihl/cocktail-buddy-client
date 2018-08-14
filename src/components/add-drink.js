@@ -6,7 +6,6 @@ import DrinkForm from './drink-form';
 export class AddDrink extends React.Component {
 
     render(){
-        console.log(this.props.currentUser);
         let drinkForm;
         if(this.props.addDrink === false){
             drinkForm = '';
