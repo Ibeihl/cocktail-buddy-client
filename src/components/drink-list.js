@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import { searchDrink, setSearchTerm } from '../actions/drink';
 import './drink-list.css';
 import AdvancedSearch from './advanced-search';
+import {Redirect} from 'react-router-dom';
 
 export class DrinkList extends React.Component {
+    // componentDidMount() {
+    //     console.log(localStorage.getItem('authToken'))
+    // }
 
     renderResults() {
         if (this.props.loading) {
@@ -58,19 +62,29 @@ export class DrinkList extends React.Component {
 
     search(e) {
         e.preventDefault();
-        if (this.input.value.trim() === '') {
+        if (this.input.value.trim() === '' || this.input.value.trim() === undefined) {
             return;
         }
         this.props.dispatch(setSearchTerm(`search=${this.input.value}`));
         this.props.dispatch(searchDrink(`search=${this.input.value}`, '', '', ''));
     }
 
+    componentWillUpdate(nextProps){
+        console.log(nextProps);
+    }
+
     render() {
+        // console.log(this.props);
+        if (this.props.loggedIn === null) {
+            // return <Redirect to="/login" />
+        }
         return (
             <div className="drink-search">
                 <div>
                 <form onSubmit={(e) => this.search(e)}>
-                    <input className="search-input" type="search" ref={input => this.input = input} />
+                    <input className="search-input" type="search"
+                        ref={input => this.input = input} 
+                        placeholder="keyword"/>
                     <button className="search-button">Search</button>
                 </form>
                 <AdvancedSearch />
@@ -89,6 +103,8 @@ const mapStateToProps = state => ({
             loading: state.drink.loading,
             error: state.drink.error,
             drinks: state.drink.drinks,
+            loggedIn: state.auth.authToken
+
         });
         
 export default connect(mapStateToProps)(DrinkList);

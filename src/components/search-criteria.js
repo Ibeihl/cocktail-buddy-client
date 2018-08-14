@@ -1,8 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {checkedMethodBox,
-     checkedEggWhiteBox,
-      checkedIngredientBox} from '../actions/search-criteria';
 import {searchDrink} from '../actions/drink';
 import './search-criteria.css';
 
@@ -52,11 +49,12 @@ export class SearchCriteria extends React.Component {
         let methodQuery = '';
         let eggWhiteQuery = '';
         let ingredientsQuery = '';
-        const value = event.target.value;
+        let value = event.target.value;
         if(value === "Yes" || value === "No"){
+            value = value.toLowerCase();
             eggWhiteQuery = `&eggWhite=${value}`;
             this.setState({
-                eggWhiteQuery
+                eggWhiteQuery: [...this.state.eggWhiteQuery, eggWhiteQuery].join('')
             }, this.props.dispatch(searchDrink(this.props.searchTerm, this.state.methodQuery,
                 this.state.eggWhiteQuery, this.state.ingredientsQuery))
             );
@@ -64,9 +62,10 @@ export class SearchCriteria extends React.Component {
             // this.props.dispatch(checkedEggWhiteBox(value));
         }
         else if(value === "Shaken" || value === "Stirred") {
+            value = value.toLowerCase();
             methodQuery = `&method=${value}`;
             this.setState({
-                methodQuery
+                methodQuery: [...this.state.methodQuery, methodQuery].join('')
             }, this.props.dispatch(searchDrink(this.props.searchTerm, this.state.methodQuery,
                 this.state.eggWhiteQuery, this.state.ingredientsQuery))
             );

@@ -32,7 +32,6 @@ const initialState = {
 
 export function drinkReducer(state = initialState, action) {
     if (action.type === TOGGLE_ADD_DRINK) {
-        console.log(state.addDrink);
         return Object.assign({}, state, {
             addDrink: !state.addDrink
         })

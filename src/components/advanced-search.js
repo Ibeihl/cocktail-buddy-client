@@ -8,7 +8,6 @@ export class AdvancedSearch extends React.Component {
 
     render(){
         let searchArea;
-        console.log(this.props.advancedSearch);
         if (this.props.advancedSearch === false){
             searchArea = '';
         } else {
