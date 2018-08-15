@@ -4,6 +4,7 @@ import { searchDrink, setSearchTerm } from '../actions/drink';
 import './drink-list.css';
 import AdvancedSearch from './advanced-search';
 import {removeDrink} from '../actions/removeDrink';
+import { editFavorite } from '../actions/favorites';
 
 export class DrinkList extends React.Component {
     handleDelete(e) {
@@ -12,6 +13,17 @@ export class DrinkList extends React.Component {
         this.props.dispatch(searchDrink(this.props.currentUser.username));
     }
 
+    handleFavorite(e) {
+        const drinkId = e.target.parentElement.id;
+        const favorite = e.target.id;
+        const user = this.props.currentUser.username;
+        console.log(favorite);
+        if (!favorite) {
+            this.props.dispatch(editFavorite(drinkId, user, favorite));
+        } else {
+            this.props.dispatch(editFavorite(drinkId, user, favorite))
+        }
+    }
 
     renderResults() {
         if (this.props.loading) {
@@ -27,15 +39,23 @@ export class DrinkList extends React.Component {
                 </li>
             );
             let deleteButton = '';
-            if (drink.user !== null) {
+            let userFavorite = "";
+            if (drink.favorites !== []) {
+                let favorite = drink.favorites.find(favUser => favUser === this.props.currentUser.username)
+                if (favorite) {
+                    userFavorite = "favorite"
+                }
+            }
+            if (drink.user === this.props.currentUser.username) {
                 deleteButton =
                 <button id={drink.id} onClick={(e) => this.handleDelete(e)}>Remove your drink</button>
 
             }
             return (
-                <li key={drink.id} className="drink-list-item">
+                <li key={drink.id} id={drink.id} className="drink-list-item">
                     <img className="result-img" src={drink.photo} alt={drink.name} />
                     <h2>{drink.name}</h2>
+                        <em>{userFavorite}</em>
                     <div>
                     <ul className="ingredient-list">
                         <h3 className="ingredient-header">Ingredients</h3>
@@ -49,6 +69,7 @@ export class DrinkList extends React.Component {
                         <li className="drink-atr"><strong>Instructions: </strong>{drink.instructions}</li>
                     </ul>
                     {deleteButton}
+                    <button id={userFavorite} onClick={e => this.handleFavorite(e)}>favorite?</button>
                 </li>
             )
         }

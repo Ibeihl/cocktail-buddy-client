@@ -9,7 +9,8 @@ import {searchDrink} from '../actions/drink';
 
 export class DrinkForm extends React.Component {
     onSubmit(values) {
-        const user = this.props.currentUser.username;
+        console.log(this.props.currentUser);
+        const user = this.props.currentUser;
         const {name, method, eggWhite, glass, ingredient1,
              ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, instructions, photo} = values;
         let inputIngredients = [ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6];

@@ -6,9 +6,9 @@ export const addDrinkRequest = () => ({
 });
 
 export const ADD_DRINK_SUCCESS = 'ADD_DRINK_SUCCESS';
-export const addDrinkSuccess = drinks => ({
+export const addDrinkSuccess = drink => ({
     type: ADD_DRINK_SUCCESS,
-    drinks
+    drink
 });
 
 export const ADD_DRINK_ERROR = 'ADD_DRINK_ERROR';
@@ -17,18 +17,20 @@ export const addDrinkError = error => ({
     error
 });
 
-export const addDrink = newDrink => dispatch => {
+export const addDrink = newDrink => (dispatch, getState) => {
     dispatch(addDrinkRequest());
+    const token = getState().auth.authToken;
     fetch(`${API_BASE_URL}/drinks`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
         },
         body: JSON.stringify({
             newDrink
         })
     })
         .then(res => res.json())
-        .then(drinks => dispatch(addDrinkSuccess(drinks)))
+        .then(drink => dispatch(addDrinkSuccess(drink)))
         .catch(error => dispatch(addDrinkError(error)))
 }

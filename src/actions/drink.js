@@ -28,22 +28,8 @@ export const clearDrinks = error => ({
     type: CLEAR_DRINKS
 });
 
-
-
-// export const searchDrink = (searchTerm, criteriaObj ) => dispatch => {
-//     dispatch(searchDrinkRequest());
-//     fetch(`${API_BASE_URL}/drinks/?search=${searchTerm}`,{
-//         method: "GET",
-//         body: methodQuery eggWhiteQuery ingredientsQuery
-//     })
-//       .then(res => res.json())
-//       .then(drinks => dispatch(searchDrinkSuccess(drinks)))
-//       .catch(error => dispatch(searchDrinkError(error)))                      
-// }
-
 export const searchDrink = (user, searchTermQuery = '', methodQuery = '', eggWhiteQuery = '',
  ingredientsQuery = '') => (dispatch, getState) => {
-    console.log(user);
     const token = getState().auth.authToken;
     dispatch(searchDrinkRequest());
     fetch(`${API_BASE_URL}/drinks/?${user}${searchTermQuery}${methodQuery}${eggWhiteQuery}${ingredientsQuery}`, {

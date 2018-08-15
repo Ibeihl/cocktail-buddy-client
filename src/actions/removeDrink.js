@@ -11,11 +11,13 @@ export const removeDrinkError = error => ({
     error
 });
 
-export const removeDrink = drinkId => dispatch => {
+export const removeDrink = drinkId => (dispatch, getState) => {
+    const token = getState().auth.authToken;
     fetch(`${API_BASE_URL}/drinks/${drinkId}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
         },
         })
         .then(res => res.json())
