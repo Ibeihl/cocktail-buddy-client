@@ -49,13 +49,15 @@ export class SearchCriteria extends React.Component {
         let methodQuery = '';
         let eggWhiteQuery = '';
         let ingredientsQuery = '';
+        let searchQuery = `search=${this.props.searchTerm}`;
+        let user = `user=${this.props.currentUser}`
         let value = event.target.value;
         if(value === "Yes" || value === "No"){
             value = value.toLowerCase();
             eggWhiteQuery = `&eggWhite=${value}`;
             this.setState({
                 eggWhiteQuery: [...this.state.eggWhiteQuery, eggWhiteQuery].join('')
-            }, this.props.dispatch(searchDrink(this.props.searchTerm, this.state.methodQuery,
+            }, this.props.dispatch(searchDrink(user, searchQuery, this.state.methodQuery,
                 this.state.eggWhiteQuery, this.state.ingredientsQuery))
             );
             
@@ -66,7 +68,7 @@ export class SearchCriteria extends React.Component {
             methodQuery = `&method=${value}`;
             this.setState({
                 methodQuery: [...this.state.methodQuery, methodQuery].join('')
-            }, this.props.dispatch(searchDrink(this.props.searchTerm, this.state.methodQuery,
+            }, this.props.dispatch(searchDrink(user, searchQuery, this.state.methodQuery,
                 this.state.eggWhiteQuery, this.state.ingredientsQuery))
             );
             // this.props.dispatch(checkedMethodBox(value));
@@ -74,14 +76,13 @@ export class SearchCriteria extends React.Component {
             ingredientsQuery = `&ingredients=${value}`;
             this.setState({
                 ingredientsQuery: [...this.state.ingredientsQuery, ingredientsQuery].join('')
-            }, this.props.dispatch(searchDrink(this.props.searchTerm, this.state.methodQuery,
+            }, this.props.dispatch(searchDrink(user, searchQuery, this.state.methodQuery,
                 this.state.eggWhiteQuery, this.state.ingredientsQuery))
             );
             // this.props.dispatch(checkedIngredientBox(value));
         }
         // this.ajaxCaller();
-        console.log(this.state);
-        this.props.dispatch(searchDrink(this.props.searchTerm, this.state.methodQuery,
+        this.props.dispatch(searchDrink(user, searchQuery, this.state.methodQuery,
              this.state.eggWhiteQuery, this.state.ingredientsQuery))
     }
 
@@ -152,7 +153,8 @@ const mapStateToProps = state => ({
     searchTerm: state.drink.searchTerm,
     searchMethod: state.drink.searchMethod,
     searchIngredients: state.drink.searchIngredients,
-    eggWhite: state.drink.eggWhite
+    eggWhite: state.drink.eggWhite,
+    currentUser: state.auth.currentUser.username
 });
 
 export default connect(mapStateToProps)(SearchCriteria);

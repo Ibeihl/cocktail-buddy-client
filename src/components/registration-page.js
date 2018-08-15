@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import LoginForm from './login';
-
+import {Welcome} from './welcome';
 import RegistrationForm from './register';
 
 export function RegistrationPage(props) {
@@ -13,7 +13,7 @@ export function RegistrationPage(props) {
     }
     return (
         <div className="home">
-            <h2>Register or Login</h2>
+            <Welcome/>
             <RegistrationForm />
             <LoginForm />
         </div>

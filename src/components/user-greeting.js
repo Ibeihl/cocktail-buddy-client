@@ -2,9 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
+import './user-greeting.css';
+import { clearDrinks } from '../actions/drink';
 
 export class UserGreeting extends React.Component {
     logOut() {
+        this.props.dispatch(clearDrinks());
         this.props.dispatch(clearAuth());
         clearAuthToken();
     }
@@ -21,8 +24,8 @@ export class UserGreeting extends React.Component {
         user = user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1);
         return (
             <div className="user-greeting">
-                <h2>Welcome Back {user}</h2>
-                {logOutButton}
+                    <h3>Welcome {user}</h3>
+                    {logOutButton}
             </div>
         )
     }

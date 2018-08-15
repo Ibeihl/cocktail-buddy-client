@@ -23,6 +23,13 @@ export const searchDrinkError = error => ({
     error
 });
 
+export const CLEAR_DRINKS = 'CLEAR_DRINKS';
+export const clearDrinks = error => ({
+    type: CLEAR_DRINKS
+});
+
+
+
 // export const searchDrink = (searchTerm, criteriaObj ) => dispatch => {
 //     dispatch(searchDrinkRequest());
 //     fetch(`${API_BASE_URL}/drinks/?search=${searchTerm}`,{
@@ -34,10 +41,12 @@ export const searchDrinkError = error => ({
 //       .catch(error => dispatch(searchDrinkError(error)))                      
 // }
 
-export const searchDrink = (searchTermQuery, methodQuery, eggWhiteQuery, ingredientsQuery) => (dispatch, getState) => {
+export const searchDrink = (user, searchTermQuery = '', methodQuery = '', eggWhiteQuery = '',
+ ingredientsQuery = '') => (dispatch, getState) => {
+    console.log(user);
     const token = getState().auth.authToken;
     dispatch(searchDrinkRequest());
-    fetch(`${API_BASE_URL}/drinks/?${searchTermQuery}${methodQuery}${eggWhiteQuery}${ingredientsQuery}`, {
+    fetch(`${API_BASE_URL}/drinks/?${user}${searchTermQuery}${methodQuery}${eggWhiteQuery}${ingredientsQuery}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -46,12 +55,3 @@ export const searchDrink = (searchTermQuery, methodQuery, eggWhiteQuery, ingredi
       .then(drinks => dispatch(searchDrinkSuccess(drinks)))
       .catch(error => dispatch(searchDrinkError(error)))                      
 }
-
-
-
-// export const refineResults = (searchTerm, method, ingredients, eggWhite ) => dispatch => {
-//     fetch(`${API_BASE_URL}/drinks/?search=${searchTerm}&method=true&ingredients=butts`)
-//       .then(res => res.json())
-//       .then(drinks => dispatch(searchDrinkSuccess(drinks)))
-//       .catch(error => dispatch(searchDrinkError(error)))                      
-// }         

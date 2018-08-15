@@ -9,7 +9,9 @@ export class DrinkList extends React.Component {
     handleDelete(e) {
         let drinkId = e.target.id; 
         this.props.dispatch(removeDrink(drinkId));
+        this.props.dispatch(searchDrink(this.props.currentUser.username));
     }
+
 
     renderResults() {
         if (this.props.loading) {
@@ -72,12 +74,12 @@ export class DrinkList extends React.Component {
         if (this.input.value.trim() === '' || this.input.value.trim() === undefined) {
             return;
         }
-        this.props.dispatch(setSearchTerm(`search=${this.input.value}`));
-        this.props.dispatch(searchDrink(`search=${this.input.value}`, '', '', '', this.props.authToken));
+        this.props.dispatch(setSearchTerm(this.input.value));
+        this.props.dispatch(searchDrink(`user=${this.props.currentUser.username}`,
+            `&search=${this.input.value}`, '', '', '', this.props.authToken));
     }
 
     componentWillUpdate(nextProps){
-        console.log(nextProps);
     }
 
     render() {
@@ -106,7 +108,8 @@ const mapStateToProps = state => ({
             error: state.drink.error,
             drinks: state.drink.drinks,
             loggedIn: state.auth.authToken,
-            authToken: state.auth.authToken
+            authToken: state.auth.authToken,
+            currentUser: state.auth.currentUser
         });
         
 export default connect(mapStateToProps)(DrinkList);

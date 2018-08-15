@@ -1,7 +1,8 @@
 import {
     SEARCH_DRINK_ERROR,
     SEARCH_DRINK_REQUEST,
-    SEARCH_DRINK_SUCCESS
+    SEARCH_DRINK_SUCCESS,
+    CLEAR_DRINKS
 } from '../actions/drink';
 import { TOGGLE_ADVANCED_SEARCH } from '../actions/advanced-search'
 import {
@@ -20,7 +21,7 @@ import {
 
 const initialState = {
     addDrink: false,
-    searchTermQuery: '',
+    searchTerm: '',
     advancedSearch: false,
     drinks: [],
     searchIngredients: [],
@@ -31,6 +32,11 @@ const initialState = {
 };
 
 export function drinkReducer(state = initialState, action) {
+    if (action.type === CLEAR_DRINKS) {
+        return Object.assign({}, state, {
+            drinks: []
+        })
+    }
     if (action.type === TOGGLE_ADD_DRINK) {
         return Object.assign({}, state, {
             addDrink: !state.addDrink

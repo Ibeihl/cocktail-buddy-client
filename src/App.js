@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 import Header from './components/header';
-import { Welcome } from './components/welcome';
 import Footer from './components/footer';
 import Main  from './components/main';
 import RegistrationPage from './components/registration-page';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {refreshAuthToken} from './actions/auth';
 import {connect} from 'react-redux';
 import {storeAuthInfo} from './actions/auth';
@@ -56,7 +55,7 @@ export class App extends React.Component {
         <div className="App">
           < Header />
           <main>
-            <Route path='/' component={Welcome} />
+            {/* <Route path='/' component={Welcome} /> */}
             <Route path='/login' component={RegistrationPage} />
             <Route exact path='/main' component={Main} />
             <Footer />
@@ -73,4 +72,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default withRouter(connect(mapStateToProps)(App));
+export default connect(mapStateToProps)(App);
