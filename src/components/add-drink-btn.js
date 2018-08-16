@@ -1,11 +1,12 @@
 import React from 'react';
 import {toggleAddDrink} from '../actions/toggle-add';
 import {connect} from 'react-redux';
+import './add-drink-btn.css'
 
 export class AddDrinkBtn extends React.Component {
     render(){
         return (
-            <button onClick={() => this.props.dispatch(toggleAddDrink())}>Add a drink!</button>
+            <button className="add-button" onClick={() => this.props.dispatch(toggleAddDrink())}>Add a drink!</button>
         )
     }
 }

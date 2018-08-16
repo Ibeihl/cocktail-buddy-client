@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import {loadAuthToken} from '../local-storage';
 import {setAuthToken} from '../actions/auth';
+import './main.css';
 // import {refreshAuthToken} from '../actions/auth';
 
 export class Main extends React.Component {

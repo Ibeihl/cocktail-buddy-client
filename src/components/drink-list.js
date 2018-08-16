@@ -9,7 +9,10 @@ import Dropdown from './dropdown';
 
 export class DrinkList extends React.Component {
     componentDidMount(){
-        this.props.dispatch(searchDrink(this.props.currentUser.username))
+        let currentUser = this.props.currentUser.username;
+        console.log(currentUser)
+        this.props.dispatch(searchDrink(currentUser))
+        //why is this not working properly
     }
     handleDelete(e) {
         let drinkId = e.target.id; 
@@ -101,7 +104,7 @@ export class DrinkList extends React.Component {
             return;
         }
         this.props.dispatch(setSearchTerm(this.input.value));
-        this.props.dispatch(searchDrink(`user=${this.props.currentUser.username}`,
+        this.props.dispatch(searchDrink(this.props.currentUser.username,
             `&search=${this.input.value}`, '', '', '', this.props.authToken));
     }
 

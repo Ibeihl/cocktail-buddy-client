@@ -11,35 +11,73 @@
     list-style-type: none;
     text-align: left;
     overflow: auto;
-    background: #eee;
+    background: #8d96a3;
     cursor: pointer;
     display: block;
-    width: 380px
+    width: 380px;
+    height: 600px;
+    color: black
+}
+.drink-list-item ul {
+    background-color: #8d96a3;
+}
+.list-btn {
+    background-color:#8d96a3;
+}
+.drink-list-item strong {
+    background-color: #8d96a3;
+    color: black;
+}
+.drink-list-item h2 {
+    background-color: #8d96a3;
+    color: black;
+}
+.drink-list-item em {
+    background-color: #8d96a3;
+    color: black;
 }
 
 .slider {
     background-color: #ccc;
 }
 .ingredient-list {
+    background: #8d96a3;
+    color: black;
 }
 .drink-atr {
     list-style-type: none;
     margin-right: 15px;
     margin-top: 15px;
-    float: center
+    float: center;
+    color: black;
+    background-color: #8d96a3;
 
 }
 .ingredient-header{
     margin-top: 70px;
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    color: black;
+    background-color: #8d96a3
 }
 .search-button {
     background-color:  #eee
 }
 .search-input {
     background-color:  #eee;
-    margin: 20px
+    margin: 20px;
+    color: black;
 }
 select {
-    background-color: #ccc;
+    background-color: #8d96a3
+}
+.drink-search button {
+    width: 100px;
+    height: 34px;
+    font-size: 20px;
+    background-color: #8d96a3;
+}
+.drink-search input {
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
 }
