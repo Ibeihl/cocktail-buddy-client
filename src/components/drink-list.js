@@ -10,9 +10,7 @@ import Dropdown from './dropdown';
 export class DrinkList extends React.Component {
     componentDidMount(){
         let currentUser = this.props.currentUser.username;
-        console.log(currentUser)
         this.props.dispatch(searchDrink(currentUser))
-        //why is this not working properly
     }
     handleDelete(e) {
         let drinkId = e.target.id; 
@@ -56,6 +54,9 @@ export class DrinkList extends React.Component {
                 deleteButton =
                 <button id={drink.id} onClick={(e) => this.handleDelete(e)}>Remove your drink</button>
 
+            }
+            if (drink.photo === '') {
+                drink.photo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAunt6FN4pSgVTgZtg7KE616V4QrKhf6sM-LzxSHze-kDIzsaQ";
             }
             return (
                 <li key={drink.id} id={drink.id} className="drink-list-item">
