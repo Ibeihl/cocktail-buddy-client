@@ -5,9 +5,12 @@ import './drink-list.css';
 // import AdvancedSearch from './advanced-search';
 import {removeDrink} from '../actions/removeDrink';
 import { editFavorite } from '../actions/favorites';
-import { Dropdown } from './dropdown';
+import Dropdown from './dropdown';
 
 export class DrinkList extends React.Component {
+    componentDidMount(){
+        this.props.dispatch(searchDrink(this.props.currentUser.username))
+    }
     handleDelete(e) {
         let drinkId = e.target.id; 
         this.props.dispatch(removeDrink(drinkId));

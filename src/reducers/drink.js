@@ -39,13 +39,13 @@ export function drinkReducer(state = initialState, action) {
 
     if (action.type === EDIT_FAVORITE_SUCCESS) {
         return Object.assign({}, state, {
-            drinks: [state.map((drink) => {
+            drinks: state.drinks.map((drink) => {
                 if(drink.id === action.drink.id){
                     return action.drink;
                 } else {
                     return drink;
                 }
-            })]
+            })
         })
     }
     if (action.type === ADD_DRINK_SUCCESS) {
