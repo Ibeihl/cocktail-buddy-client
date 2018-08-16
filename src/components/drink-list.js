@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { searchDrink, setSearchTerm } from '../actions/drink';
 import './drink-list.css';
-import AdvancedSearch from './advanced-search';
+// import AdvancedSearch from './advanced-search';
 import {removeDrink} from '../actions/removeDrink';
 import { editFavorite } from '../actions/favorites';
+import { Dropdown } from './dropdown';
 
 export class DrinkList extends React.Component {
     handleDelete(e) {
@@ -17,7 +18,6 @@ export class DrinkList extends React.Component {
         const drinkId = e.target.parentElement.id;
         const favorite = e.target.id;
         const user = this.props.currentUser.username;
-        console.log(favorite);
         if (!favorite) {
             this.props.dispatch(editFavorite(drinkId, user, favorite));
         } else {
@@ -100,21 +100,19 @@ export class DrinkList extends React.Component {
             `&search=${this.input.value}`, '', '', '', this.props.authToken));
     }
 
-    componentWillUpdate(nextProps){
-    }
-
     render() {
         return (
             <div className="drink-search">
-                <div>
+                <span>
                 <form onSubmit={(e) => this.search(e)}>
                     <input className="search-input" type="search"
                         ref={input => this.input = input} 
                         placeholder="keyword"/>
                     <button className="search-button">Search</button>
                 </form>
-                <AdvancedSearch />
-                </div>
+                < Dropdown />
+                {/* <AdvancedSearch /> */}
+                </span>
                 <ul className="drink-results">
                     {this.renderResults()}
                 </ul>

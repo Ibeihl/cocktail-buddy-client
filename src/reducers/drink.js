@@ -15,6 +15,7 @@ import {
 } from '../actions/toggle-add';
 import { ADD_DRINK_SUCCESS } from '../actions/addDrink';
 import { EDIT_FAVORITE_SUCCESS } from '../actions/favorites';
+import { SET_DISPLAY_CAT } from '../actions/set-display';
 
 const initialState = {
     addDrink: false,
@@ -26,9 +27,16 @@ const initialState = {
     eggWhite: null,
     loading: false,
     error: null,
+    displayCat: 'all'
 };
 
 export function drinkReducer(state = initialState, action) {
+    if (action.type === SET_DISPLAY_CAT) {
+        return Object.assign({}, state, {
+            displayCat: action.displayCat
+        })
+    }
+
     if (action.type === EDIT_FAVORITE_SUCCESS) {
         return Object.assign({}, state, {
             drinks: [state.map((drink) => {
