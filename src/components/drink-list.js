@@ -76,7 +76,9 @@ export class DrinkList extends React.Component {
         );
         let drinkCount;
         if (this.props.drinks.length === 0){
-            drinkCount = '';
+            drinkCount = <h4>no drinks found</h4>;
+        } else if (this.props.drinks.length === 1){
+            drinkCount = <h4>{this.props.drinks.length} drink found</h4>
         } else {
             drinkCount = <h4>{this.props.drinks.length} drinks found</h4>
         }

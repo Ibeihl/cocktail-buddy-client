@@ -4,10 +4,10 @@ import { setDisplayCat } from '../actions/set-display';
 
 export class Dropdown extends React.Component {
     handleDropdown(e) {
-        console.log(this.props.currentUser)
+        // console.log(this.props.currentUser)
         const displayCat = e.target.value;
         console.log(displayCat);
-        // this.props.dispatch(setDisplayCat(displayCat));
+        this.props.dispatch(setDisplayCat(displayCat));
 
         //I DONT KNOW WHY THIS ISNT CONNECTED PROPERLY
 
