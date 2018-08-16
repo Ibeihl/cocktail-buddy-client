@@ -6,6 +6,7 @@ import {required} from './validators';
 import {connect} from 'react-redux';
 import Input from './input';
 import {searchDrink} from '../actions/drink';
+import './drink-form.css';
 
 export class DrinkForm extends React.Component {
     onSubmit(values) {
