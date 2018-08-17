@@ -15,7 +15,7 @@ Users can create an account, then have access to Cocktail Buddy's hand picked se
 ![screen shot 2018-08-17 at 1 54 46 pm](https://user-images.githubusercontent.com/38081935/44288719-1f286c80-a226-11e8-9d13-2c41b47f5b84.png)
 
 ### Add Drinks
-![screen shot 2018-08-17 at 1 54 02 pm](https://user-images.githubusercontent.com/38081935/44288774-4c751a80-a226-11e8-9cd1-ab9f6af983c0.png)
+![screen shot 2018-08-17 at 1 55 08 pm](https://user-images.githubusercontent.com/38081935/44288847-9cec7800-a226-11e8-9cd1-c60972f0d14b.png)
 
 ## Target Audience
 Bartenders that are looking for an easy way to organize drink recipes.  Bar or restaurant managers who want an easy place to store house recipes that can be easily accesses by employees.  Anyone who enjoys making cocktails and needs an easy way to find reliable, delicous drink recipes. 
