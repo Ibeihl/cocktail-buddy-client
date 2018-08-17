@@ -55,36 +55,36 @@ export class DrinkList extends React.Component {
             if (drink.favorites !== []) {
                 let favorite = drink.favorites.find(favUser => favUser === this.props.currentUser.username)
                 if (favorite) {
-                    userFavorite = "favorite"
+                    userFavorite = "A Favorite of Yours"
                 }
             }
             if (drink.user === this.props.currentUser.username) {
                 deleteButton =
-                <button className="list-btn" id={drink.id} onClick={(e) => this.handleDelete(e)}>Remove your drink</button>
+                <button className="list-btn" id={drink.id} onClick={(e) => this.handleDelete(e)}>Remove Drink</button>
 
             }
-            if (drink.photo === '') {
+            if (drink.photo === '' || undefined) {
                 drink.photo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAunt6FN4pSgVTgZtg7KE616V4QrKhf6sM-LzxSHze-kDIzsaQ";
             }
             return (
                 <li key={drink.id} id={drink.id} className="drink-list-item">
                     <img className="result-img" src={drink.photo} alt={drink.name} />
                     <h2>{drink.name}</h2>
-                        <em>{userFavorite}</em>
+                        <em> {userFavorite}</em>
                     <div>
                     <ul className="ingredient-list">
                         <h3 className="ingredient-header">Ingredients</h3>
                         {ingredients}
                     </ul>
                     </div>
-                    <ul>
-                        <li className="drink-atr"><strong>Style: </strong>{drink.method}</li>
-                        <li className="drink-atr"><strong>Has Egg White: </strong>{drink.eggWhite}</li>
-                        <li className="drink-atr"><strong>Glass: </strong>{drink.glass}</li>
-                        <li className="drink-atr"><strong>Instructions: </strong>{drink.instructions}</li>
+                    <ul className="drink-atr">
+                        <li><strong>Style: </strong>{drink.method}</li>
+                        <li><strong>Has Egg White: </strong>{drink.eggWhite}</li>
+                        <li><strong>Glass: </strong>{drink.glass}</li>
+                        <li><strong>Instructions: </strong>{drink.instructions}</li>
                     </ul>
                     {deleteButton}
-                    <button className="list-btn" id={userFavorite} onClick={e => this.handleFavorite(e)}>favorite?</button>
+                    <button className="list-btn" id={userFavorite} onClick={e => this.handleFavorite(e)}>Favorite</button>
                 </li>
             )
         }
@@ -100,7 +100,7 @@ export class DrinkList extends React.Component {
         return (
             <div className="drink-results">
                {drinkCount}
-                <ul>
+                <ul className="main-results">
                     {drinks}
                 </ul>
             </div>
