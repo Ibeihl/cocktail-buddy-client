@@ -1,7 +1,22 @@
 .drink-form{
-    margin: 15px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-left: auto;
     background-color: #8d96a3;
     color: black;
+    border-radius: 5px;
+    border: solid black 1px;
+}
+.drink-form fieldset {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (min-width: 500px) {
+    .drink-form {width: 400px;
+        margin-left: auto;
+        margin-right: auto
+    }
 }
 .drink-form legend {
     color: black;

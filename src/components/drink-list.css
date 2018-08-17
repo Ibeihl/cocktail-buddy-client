@@ -30,6 +30,10 @@
     border-radius: 5px;
     border: solid black 1px;
 }
+@media only screen and (min-width: 500px) {
+    .drink-list-item {width: 400px}
+}
+
 .drink-list-item ul {
     background-color: #8d96a3;
 }

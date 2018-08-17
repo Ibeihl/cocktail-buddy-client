@@ -4,12 +4,6 @@ import {
     SEARCH_DRINK_SUCCESS,
     CLEAR_DRINKS
 } from '../actions/drink';
-import { TOGGLE_ADVANCED_SEARCH } from '../actions/advanced-search'
-import {
-    CHECKED_METHOD_BOX,
-    CHECKED_EGGWHITE_BOX,
-    CHECKED_INGREDIENT_BOX
-} from '../actions/search-criteria'
 import {
     TOGGLE_ADD_DRINK
 } from '../actions/toggle-add';
@@ -20,7 +14,6 @@ import { SET_DISPLAY_CAT } from '../actions/set-display';
 const initialState = {
     addDrink: false,
     searchTerm: '',
-    advancedSearch: false,
     drinks: [],
     searchIngredients: [],
     searchMethod: null,
@@ -37,7 +30,7 @@ export function drinkReducer(state = initialState, action) {
         })
     }
 
-    if (action.type === EDIT_FAVORITE_SUCCESS) {
+    else if (action.type === EDIT_FAVORITE_SUCCESS) {
         return Object.assign({}, state, {
             drinks: state.drinks.map((drink) => {
                 if(drink.id === action.drink.id){
@@ -48,39 +41,19 @@ export function drinkReducer(state = initialState, action) {
             })
         })
     }
-    if (action.type === ADD_DRINK_SUCCESS) {
+    else if (action.type === ADD_DRINK_SUCCESS) {
         return Object.assign({}, state, {
             drinks: [...this.state.drinks, action.drink]
         })
     }
-    if (action.type === CLEAR_DRINKS) {
+    else if (action.type === CLEAR_DRINKS) {
         return Object.assign({}, state, {
             drinks: []
         })
     }
-    if (action.type === TOGGLE_ADD_DRINK) {
+    else if (action.type === TOGGLE_ADD_DRINK) {
         return Object.assign({}, state, {
             addDrink: !state.addDrink
-        })
-    }
-    if (action.type === CHECKED_METHOD_BOX) {
-        return Object.assign({}, state, {
-            searchMethod: action.method
-        })
-    }
-    else if (action.type === CHECKED_EGGWHITE_BOX) {
-        return Object.assign({}, state, {
-            eggWhite: action.eggWhite
-        })
-    }
-    else if (action.type === CHECKED_INGREDIENT_BOX) {
-        return Object.assign({}, state, {
-            ingredient: [...state.searchIngredients, action.ingredient]
-        })
-    }
-    else if (action.type === TOGGLE_ADVANCED_SEARCH) {
-        return Object.assign({}, state, {
-            advancedSearch: !state.advancedSearch
         })
     }
     else if (action.type === SEARCH_DRINK_REQUEST) {

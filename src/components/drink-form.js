@@ -37,20 +37,20 @@ export class DrinkForm extends React.Component {
                             validate={required}/>
                     </div>
                     <div className="drink-atr">
+                        <label htmlFor="shaken">Shaken</label>
                         <Field component={Input} type="radio" id="addShaken" name="method"
                             value="shaken" />
-                        <label htmlFor="shaken">Shaken</label>
+                        <label htmlFor="stirred">Stirred</label>
                         <Field component={Input} type="radio" id="addStirred" name="method"
                             value="stirred"  />
-                        <label htmlFor="stirred">Stirred</label>
                     </div>
                     <div className="drink-atr">
+                        <label htmlFor="yesEggWhite">Has Egg White</label>
                         <Field component={Input} type="radio" id="EggWhiteYes" name="eggWhite"
                             value="yes" />
-                        <label htmlFor="yesEggWhite">Has Egg White</label>
+                        <label htmlFor="noEggWhite">No Egg White</label>
                         <Field component={Input} type="radio" id="EggWhiteNo" name="eggWhite" defaultChecked
                             value="no" />
-                        <label htmlFor="noEggWhite">No Egg White</label>
                     </div>
                     <div className="drink-atr">
                         <label htmlFor="glass">Glass:</label>
