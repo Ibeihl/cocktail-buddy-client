@@ -8,8 +8,13 @@ https://safe-depths-30019.herokuapp.com/
 Users can create an account, then have access to Cocktail Buddy's hand picked selection of classic cocktails.  A user can search through the preexisting drink database and add drinks to favorites.  Users can then add and remove their own drinks to their individual account, and add those to favorites and search through all the drinks.
 
 ## Screenshots
+### Register and Login
 ![screen shot 2018-08-17 at 1 54 02 pm](https://user-images.githubusercontent.com/38081935/44288691-05872500-a226-11e8-8337-755fdb5e7494.png)
 
+### Search Drinks
+![screen shot 2018-08-17 at 1 54 46 pm](https://user-images.githubusercontent.com/38081935/44288719-1f286c80-a226-11e8-9d13-2c41b47f5b84.png)
+
+### Add Drinks
 
 
 ## Target Audience
