@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { searchDrink, setSearchTerm } from '../actions/drink';
 import './drink-list.css';
-// import AdvancedSearch from './advanced-search';
 import {removeDrink} from '../actions/removeDrink';
 import { editFavorite } from '../actions/favorites';
 import Dropdown from './dropdown';
@@ -19,13 +18,6 @@ export class DrinkList extends React.Component {
         this.props.dispatch(removeDrink(drinkId));
         this.props.dispatch(searchDrink(this.props.currentUser.username, displayCatQuery));
     }
-
-    // componentDidUpdate() {
-    //     console.log(this.props.displayCat);
-    //     const displayCatQuery = `&displayCat=${this.props.displayCat}`
-    //     // this.props.dispatch(searchDrink(this.props.currentUser.username, displayCatQuery))
-    // }
-
     handleFavorite(e) {
         const drinkId = e.target.parentElement.id;
         const favorite = e.target.id;
@@ -128,7 +120,6 @@ export class DrinkList extends React.Component {
                     <button className="search-button">Search</button>
                 </form>
                 < Dropdown />
-                {/* <AdvancedSearch /> */}
                 </span>
                 <ul className="drink-results">
                     {this.renderResults()}
@@ -137,8 +128,7 @@ export class DrinkList extends React.Component {
                 );
             }
         };
-
-
+        
 const mapStateToProps = state => ({
             loading: state.drink.loading,
             error: state.drink.error,

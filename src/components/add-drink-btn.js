@@ -11,7 +11,6 @@ export class AddDrinkBtn extends React.Component {
     }
 }
 
-
 const mapStateToProps = state => ({
     addDrink: state.drink.addDrink
 });

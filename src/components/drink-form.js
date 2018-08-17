@@ -5,7 +5,6 @@ import {addDrink} from '../actions/addDrink';
 import {required} from '../validators';
 import {connect} from 'react-redux';
 import Input from './input';
-// import {searchDrink} from '../actions/drink';
 import './drink-form.css';
 import { toggleAddDrink } from '../actions/toggle-add';
 
@@ -17,7 +16,6 @@ export class DrinkForm extends React.Component {
         if(photo === undefined){
             photo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAunt6FN4pSgVTgZtg7KE616V4QrKhf6sM-LzxSHze-kDIzsaQ';
         }
-        console.log(photo)
         let inputIngredients = [ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6];
         let ingredients = inputIngredients.filter(ingredient => ingredient !== undefined);
         const newDrink = {name, method, eggWhite, glass, ingredients, instructions, photo, user};
