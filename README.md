@@ -15,6 +15,7 @@ Users can create an account, then have access to Cocktail Buddy's hand picked se
 ![screen shot 2018-08-17 at 1 54 46 pm](https://user-images.githubusercontent.com/38081935/44288719-1f286c80-a226-11e8-9d13-2c41b47f5b84.png)
 
 ### Add Drinks
+![screen shot 2018-08-17 at 1 54 02 pm](https://user-images.githubusercontent.com/38081935/44288774-4c751a80-a226-11e8-9cd1-ab9f6af983c0.png)
 
 
 ## Target Audience
