@@ -56,7 +56,7 @@ export class App extends React.Component {
           < Header />
           <main>
             <Route path='/login' component={RegistrationPage} />
-            <Route exact path='/main' component={Main} />
+            <Route exact path='/' component={Main} />
             <Footer />
           </main>
         </div>
