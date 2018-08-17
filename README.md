@@ -9,7 +9,7 @@ Users can create an account, then have access to Cocktail Buddy's hand picked se
 
 ## Screenshots
 ### Register and Login
-![screen shot 2018-08-17 at 1 54 02 pm](https://user-images.githubusercontent.com/38081935/44288691-05872500-a226-11e8-8337-755fdb5e7494.png)
+
 
 ### Search Drinks
 ![screen shot 2018-08-17 at 1 54 46 pm](https://user-images.githubusercontent.com/38081935/44288719-1f286c80-a226-11e8-9d13-2c41b47f5b84.png)
