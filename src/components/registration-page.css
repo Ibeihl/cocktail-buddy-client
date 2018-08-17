@@ -24,6 +24,12 @@
     font-size: 20px;
     margin-bottom: 15px;
     font-weight: bold;
+    height: 20px;
+    width: 100px;
+    padding: 7px;
+    border-radius: 5px;
+    border: solid black 1px;
+    
 }
 .home button {
     color: white;

@@ -10,13 +10,21 @@ import Dropdown from './dropdown';
 export class DrinkList extends React.Component {
     componentDidMount(){
         let currentUser = this.props.currentUser.username;
-        this.props.dispatch(searchDrink(currentUser))
+        let displayCatQuery = `&displayCat=${this.props.displayCat}`
+        this.props.dispatch(searchDrink(currentUser, displayCatQuery))
     }
     handleDelete(e) {
         let drinkId = e.target.id; 
+        let displayCatQuery = `&displayCat=${this.props.displayCat}`
         this.props.dispatch(removeDrink(drinkId));
-        this.props.dispatch(searchDrink(this.props.currentUser.username));
+        this.props.dispatch(searchDrink(this.props.currentUser.username, displayCatQuery));
     }
+
+    // componentDidUpdate() {
+    //     console.log(this.props.displayCat);
+    //     const displayCatQuery = `&displayCat=${this.props.displayCat}`
+    //     // this.props.dispatch(searchDrink(this.props.currentUser.username, displayCatQuery))
+    // }
 
     handleFavorite(e) {
         const drinkId = e.target.parentElement.id;
@@ -52,7 +60,7 @@ export class DrinkList extends React.Component {
             }
             if (drink.user === this.props.currentUser.username) {
                 deleteButton =
-                <button id={drink.id} onClick={(e) => this.handleDelete(e)}>Remove your drink</button>
+                <button className="list-btn" id={drink.id} onClick={(e) => this.handleDelete(e)}>Remove your drink</button>
 
             }
             if (drink.photo === '') {
@@ -76,7 +84,7 @@ export class DrinkList extends React.Component {
                         <li className="drink-atr"><strong>Instructions: </strong>{drink.instructions}</li>
                     </ul>
                     {deleteButton}
-                    <button id={userFavorite} onClick={e => this.handleFavorite(e)}>favorite?</button>
+                    <button className="list-btn" id={userFavorite} onClick={e => this.handleFavorite(e)}>favorite?</button>
                 </li>
             )
         }
@@ -106,7 +114,7 @@ export class DrinkList extends React.Component {
         }
         this.props.dispatch(setSearchTerm(this.input.value));
         this.props.dispatch(searchDrink(this.props.currentUser.username,
-            `&search=${this.input.value}`, '', '', '', this.props.authToken));
+            `&search=${this.input.value}`, `&displayCat=${this.props.displayCat}`));
     }
 
     render() {
@@ -137,7 +145,8 @@ const mapStateToProps = state => ({
             drinks: state.drink.drinks,
             loggedIn: state.auth.authToken,
             authToken: state.auth.authToken,
-            currentUser: state.auth.currentUser
+            currentUser: state.auth.currentUser,
+            displayCat: state.drink.displayCat
         });
         
 export default connect(mapStateToProps)(DrinkList);

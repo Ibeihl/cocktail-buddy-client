@@ -28,10 +28,10 @@ export const clearDrinks = error => ({
     type: CLEAR_DRINKS
 });
 
-export const searchDrink = (user, searchTermQuery = '') => (dispatch, getState) => {
+export const searchDrink = (user, searchTermQuery = '', displayCat = '') => (dispatch, getState) => {
     const token = getState().auth.authToken;
     dispatch(searchDrinkRequest());
-    fetch(`${API_BASE_URL}/drinks/?user=${user}${searchTermQuery}`, {
+    fetch(`${API_BASE_URL}/drinks/?user=${user}${searchTermQuery}${displayCat}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }

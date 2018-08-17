@@ -8,6 +8,11 @@
     background-color: #8d96a3;
     font-size: 18px;
     font-weight: bold;
+    height: 20px;
+    width: 280px;
+    padding: 7px;
+    border-radius: 5px;
+    border: solid black 1px;
 }
 
 .drink-form label {
@@ -54,6 +59,8 @@
     height: 30px;
     font-size: 18px;
     color: white;
+    border-radius: 5px;
+    border: solid black 1px;
 }
 .photo-input {
     width: 200px;

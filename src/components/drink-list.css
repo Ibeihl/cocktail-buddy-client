@@ -16,7 +16,9 @@
     display: block;
     width: 380px;
     height: 600px;
-    color: black
+    color: black;
+    border-radius: 5px;
+    border: solid black 1px;
 }
 .drink-list-item ul {
     background-color: #8d96a3;
@@ -59,25 +61,35 @@
     color: black;
     background-color: #8d96a3
 }
-.search-button {
-    background-color:  #eee
-}
 .search-input {
     background-color:  #eee;
     margin: 20px;
     color: black;
 }
 select {
-    background-color: #8d96a3
+    background-color: #8d96a3;
+    color: black;
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
+    border: solid black 1px;
+    margin-left: 18px;
 }
 .drink-search button {
     width: 100px;
     height: 34px;
     font-size: 20px;
     background-color: #8d96a3;
+    border-radius: 5px;
+    border: solid black 1px;
 }
 .drink-search input {
     width: 200px;
     height: 30px;
     font-size: 20px;
+}
+.list-btn {
+    position: relative;
+    left: 50px;
+    width: 200px;
 }
