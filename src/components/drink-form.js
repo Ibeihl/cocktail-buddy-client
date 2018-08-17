@@ -2,7 +2,7 @@ import React from 'react';
 import './drink-form.css';
 import {Field, reduxForm} from 'redux-form';
 import {addDrink} from '../actions/addDrink';
-import {required} from './validators';
+import {required} from '../validators';
 import {connect} from 'react-redux';
 import Input from './input';
 // import {searchDrink} from '../actions/drink';
