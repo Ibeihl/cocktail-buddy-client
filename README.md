@@ -2,7 +2,7 @@
 An app built by bartenders, for bartenders.  Cocktail Buddy is a great way to easily store and organize cocktail drink recipes.  Whether a seasoned bartender, or just someone who likes experimenting with drink recipes, having a convenient place to keep your recipes is essential.
 
 ## Link to deployed version on Heroku:
-https://safe-depths-30019.herokuapp.com/
+https://whispering-scrubland-31994.herokuapp.com/
 
 ## Features
 Users can create an account, then have access to Cocktail Buddy's hand picked selection of classic cocktails.  A user can search through the preexisting drink database and add drinks to favorites.  Users can then add and remove their own drinks to their individual account, and add those to favorites and search through all the drinks.
