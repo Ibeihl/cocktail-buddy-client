@@ -1,7 +1,7 @@
 import React from 'react';
 import {toggleAddDrink} from '../actions/toggle-add';
 import {connect} from 'react-redux';
-import './add-drink-btn.css'
+import '../css/add-drink-btn.css'
 
 export class AddDrinkBtn extends React.Component {
     render(){

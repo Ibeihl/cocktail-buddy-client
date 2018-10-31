@@ -1,11 +1,10 @@
 import React from 'react';
-import './drink-form.css';
 import {Field, reduxForm} from 'redux-form';
 import {addDrink} from '../actions/addDrink';
 import {required} from '../validators';
 import {connect} from 'react-redux';
 import Input from './input';
-import './drink-form.css';
+import '../css/drink-form.css';
 import { toggleAddDrink } from '../actions/toggle-add';
 
 export class DrinkForm extends React.Component {

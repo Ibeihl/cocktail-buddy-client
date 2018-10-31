@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { searchDrink, setSearchTerm } from '../actions/drink';
-import './drink-list.css';
+import '../css/drink-list.css';
 import {removeDrink} from '../actions/removeDrink';
 import { editFavorite } from '../actions/favorites';
 import Dropdown from './dropdown';

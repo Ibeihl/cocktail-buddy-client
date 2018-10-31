@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import DrinkForm from './drink-form';
 
 export class AddDrink extends React.Component {

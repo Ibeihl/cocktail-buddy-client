@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
-import './user-greeting.css';
+import '../css/user-greeting.css';
 import { clearDrinks } from '../actions/drink';
 
 export class UserGreeting extends React.Component {

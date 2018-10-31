@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import Header from './header';
+import {Welcome} from '../components/welcome';
 
-describe('<Header />', () => {
+describe('<Welcome />', () => {
     it('renders without crashing', () => {
-        shallow(<Header />);
+        shallow(<Welcome />);
     });
 })

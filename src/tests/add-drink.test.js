@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {LoginForm} from './login';
+import {AddDrink} from '../components/add-drink';
 
-describe('<LoginForm />', () => {
+describe('<AddDrink />', () => {
     it('renders without crashing', () => {
-        shallow(<LoginForm />);
+        shallow(<AddDrink />);
     });
 })
