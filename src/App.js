@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './components/header';
 import Footer from './components/footer';
 import Main  from './components/main';
 import RegistrationPage from './components/registration-page';
@@ -52,7 +51,6 @@ export class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          {/* < Header /> */}
           <main>           
             <Route exact path='/' component={Main} />
             <Route path='/login' component={RegistrationPage} />

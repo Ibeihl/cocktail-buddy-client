@@ -1,15 +1,9 @@
-.nav {
-    list-style-type: none;
-    background-color: aqua;
-    margin: 0 0 20px 0;
-    display: flex;
-    justify-content: space-between
+.user-greeting {
+    margin: 40px;
+    padding: 20px;
+    background-color: grey
 }
-.nav li {
-    margin: 20px;
-    font-size: 20px;
-}
-.nav button {
-    font-size: 18px;
-    padding: 6px;
+.user-greeting h1 {
+    font-size: 40;
+
 }

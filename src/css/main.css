@@ -1,7 +1,12 @@
-* {
-
+.add-search {
+    display: inline-block
 }
-
+.dropdown {
+    display: inline-block
+}
+.add-button {
+    display: inline-block
+}
 button {
     text-align: center;
 }

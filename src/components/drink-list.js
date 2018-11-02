@@ -5,6 +5,7 @@ import '../css/drink-list.css';
 import {removeDrink} from '../actions/removeDrink';
 import { editFavorite } from '../actions/favorites';
 import Dropdown from './dropdown';
+import SearchBar from './search-bar';
 
 export class DrinkList extends React.Component {
     componentDidMount(){
@@ -99,28 +100,21 @@ export class DrinkList extends React.Component {
         );
     }
 
-    search(e) {
-        e.preventDefault();
-        if (this.input.value.trim() === '' || this.input.value.trim() === undefined) {
-            return;
-        }
-        this.props.dispatch(setSearchTerm(this.input.value));
-        this.props.dispatch(searchDrink(this.props.currentUser.username,
-            `&search=${this.input.value}`, `&displayCat=${this.props.displayCat}`));
-    }
+    // search(e) {
+    //     e.preventDefault();
+    //     if (this.input.value.trim() === '' || this.input.value.trim() === undefined) {
+    //         return;
+    //     }
+    //     this.props.dispatch(setSearchTerm(this.input.value));
+    //     this.props.dispatch(searchDrink(this.props.currentUser.username,
+    //         `&search=${this.input.value}`, `&displayCat=${this.props.displayCat}`));
+    // }
 
     render() {
         return (
             <div className="drink-search">
-                <span>
-                <form onSubmit={(e) => this.search(e)}>
-                    <input className="search-input" type="search"
-                        ref={input => this.input = input} 
-                        placeholder="keyword"/>
-                    <button className="search-button">Search</button>
-                </form>
-                < Dropdown />
-                </span>
+                {/* < SearchBar />
+                < Dropdown /> */}
                 <ul className="drink-results">
                     {this.renderResults()}
                 </ul>

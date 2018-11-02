@@ -1,43 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { clearAuth } from '../actions/auth';
-import { clearAuthToken } from '../local-storage';
 import '../css/user-greeting.css';
-import { clearDrinks } from '../actions/drink';
 
-export class UserGreeting extends React.Component {
-    logOut() {
-        this.props.dispatch(clearDrinks());
-        this.props.dispatch(clearAuth());
-        clearAuthToken();
-    }
-
-    render() {
-        let logOutButton;
-        if (this.props.loggedIn) {
-            logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
-            );
-        }
-
-        let user = this.props.currentUser;
-        user = user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1);
-
-        return (
-            <header>
-                <ul className="nav">
-                    <li>Welcome {user}</li>
-                    <li>{logOutButton}</li>
-                </ul>
-            </header>
-        )
-    }
+export default function UserGreeting(props) {
+    return (
+        <div className="user-greeting">
+                <h1>Cocktail Buddy</h1>
+                <p>An app built by bartenders, for bartenders.</p>
+                <p>To get started, either browse our current drinks,
+                    search for drinks by ingredients or name, or add
+                    your own creation, so you can access it anytime!
+                </p>
+        </div>
+    );
 }
-
-
-const mapStateToProps = state => ({
-    currentUser: state.auth.currentUser,
-    loggedIn: state.auth.currentUser !== null
-});
-
-export default connect(mapStateToProps)(UserGreeting);
