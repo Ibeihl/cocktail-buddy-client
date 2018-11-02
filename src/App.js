@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Header from './components/header';
 import Footer from './components/footer';
 import Main  from './components/main';
@@ -53,7 +52,7 @@ export class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          < Header />
+          {/* < Header /> */}
           <main>           
             <Route exact path='/' component={Main} />
             <Route path='/login' component={RegistrationPage} />

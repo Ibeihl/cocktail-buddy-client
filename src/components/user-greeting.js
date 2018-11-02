@@ -22,11 +22,14 @@ export class UserGreeting extends React.Component {
 
         let user = this.props.currentUser;
         user = user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1);
+
         return (
-            <div className="user-greeting">
-                    <h3>Welcome {user}</h3>
-                    {logOutButton}
-            </div>
+            <header>
+                <ul className="nav">
+                    <li>Welcome {user}</li>
+                    <li>{logOutButton}</li>
+                </ul>
+            </header>
         )
     }
 }
