@@ -7,9 +7,6 @@
 .drink-results {
     text-align: center;
     padding-left: 0;
-    /* background: repeat;
-    background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=31b0b078f5da0a750f05e27c6d9df39b&auto=format&fit=crop&w=1153&q=80") */
-  
 }
 .main-results {
     padding-left: 0px;
@@ -37,32 +34,41 @@
 }
 
 .drink-list-item strong {
-
     color: black;
 }
 .drink-list-item h2 {
- 
     color: black;
+    font-size: 30px;
 }
 .drink-list-item em {
-
     color: black;
 }
-
-.slider {
-    background-color: #ccc;
-}
 .ingredient-list {
-
     color: black;
 }
 .drink-atr {
     list-style-type: none;
     margin-right: 15px;
     margin-top: 10px;
-    float: center;
+    /* float: center; */
     color: black;
-
+}
+.drink-content {
+    clear: both;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between
+}
+.ingredient-container {
+    /* border: solid 1px black; */
+    display: inline-block;
+    width: 40%;
+    padding-left: 20px;
+}
+.atr-container {
+    /* border: solid 1px black; */
+    display: inline-block;
+    width: 60%;
 }
 .drink-atr li {
     margin-bottom: 5px;

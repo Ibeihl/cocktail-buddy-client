@@ -62,18 +62,22 @@ export class DrinkList extends React.Component {
                     <img className="result-img" src={drink.photo} alt={drink.name} />
                     <h2>{drink.name}</h2>
                     <em> {userFavorite}</em>
-                    <div>
-                        <ul className="ingredient-list">
-                            <h3 className="ingredient-header">Ingredients</h3>
-                            {ingredients}
-                        </ul>
+                    <div className="drink-content">
+                        <div className="ingredient-container">
+                            <ul className="ingredient-list">
+                                <h3 className="ingredient-header">Ingredients</h3>
+                                {ingredients}
+                            </ul>
+                        </div>
+                        <div className="atr-container">
+                            <ul className="drink-atr">
+                                <li><strong>Style: </strong>{drink.method}</li>
+                                <li><strong>Has Egg White: </strong>{drink.eggWhite}</li>
+                                <li><strong>Glass: </strong>{drink.glass}</li>
+                                <li><strong>Instructions: </strong>{drink.instructions}</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul className="drink-atr">
-                        <li><strong>Style: </strong>{drink.method}</li>
-                        <li><strong>Has Egg White: </strong>{drink.eggWhite}</li>
-                        <li><strong>Glass: </strong>{drink.glass}</li>
-                        <li><strong>Instructions: </strong>{drink.instructions}</li>
-                    </ul>
                     {deleteButton}
                     <button className="list-btn" id={userFavorite} onClick={e => this.handleFavorite(e)}>Favorite</button>
                 </div>
