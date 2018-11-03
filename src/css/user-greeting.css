@@ -1,9 +1,12 @@
 .user-greeting {
-    margin: 40px;
     padding: 20px;
-    background-color: grey
+    color: black;
+    font-family: 'Arvo', Georgia, Times, serif;
 }
 .user-greeting h1 {
-    font-size: 40;
+    font-size: 80px;
 
+}
+.user-greeting p {
+    font-size: 24px;
 }

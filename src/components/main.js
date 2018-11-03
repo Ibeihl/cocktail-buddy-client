@@ -24,12 +24,14 @@ export class Main extends React.Component {
     render() {
         return (
             <div className="main">
-                <Navbar />
-                <UserGreeting />
-                <div className="add-search">
-                    <AddDrinkBtn />
-                    <SearchBar />
-                    <Dropdown />
+                <div className="bar-scene">
+                    <Navbar />
+                    <UserGreeting />
+                    <div className="add-search">
+                        <AddDrinkBtn />
+                        <SearchBar />
+                        <Dropdown />
+                    </div>
                 </div>
                 <AddDrink />
                 <DrinkList />
