@@ -11,7 +11,6 @@ export class Welcome extends React.Component {
                 {/* <p>How does Cocktail Buddy work?</p> */}
                 <p>We give you our favorite classic recipes to start with, then you can create your own recipes,
                     pick favorites, and search through them easily!</p>
-                <p>Register or sign in to get started!</p>
             </div>
         );
     }

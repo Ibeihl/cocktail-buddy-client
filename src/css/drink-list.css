@@ -15,7 +15,7 @@
     padding-left: 0px;
 }
 .drink-count {
-    padding: 40px;
+    padding: 20px;
     margin: 0;
     font-size: 30px;
     color: white;
@@ -34,10 +34,6 @@
     display: block;
     color: black;
     /* border: solid rgb(71, 55, 55) 3px; */
-}
-
-.drink-list-item ul {
-
 }
 
 .drink-list-item strong {

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-import { Link } from 'react-router-dom';
 import Input from './input';
 import { login } from '../actions/auth';
-import { Welcome } from './welcome';
 import { required, nonEmpty, isTrimmed } from '../validators';
 import '../css/login.css';
 
