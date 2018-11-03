@@ -4,9 +4,21 @@ import { toggleAddDrink } from '../actions/toggle-add';
 import '../css/add-drink-btn.css';
 
 export class AddDrinkBtn extends React.Component {
+  renderDrinkBtn() {
+    let addDrinkButton;
+    if(!this.props.addDrink) {
+      addDrinkButton = <button className="add-button" onClick={() => this.props.dispatch(toggleAddDrink())}>Add a drink!</button>
+    } else {
+      addDrinkButton = <button className="add-button" onClick={() => this.props.dispatch(toggleAddDrink())}>Hide drink form!</button>
+    }
+    return addDrinkButton
+  }
+  
   render() {
     return (
-      <button className="add-button" onClick={() => this.props.dispatch(toggleAddDrink())}>Add a drink!</button>
+      <span className="add-drink-btn">
+            {this.renderDrinkBtn()}
+      </span>
     )
   }
 }
