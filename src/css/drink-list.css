@@ -30,7 +30,6 @@
     cursor: pointer;
     display: block;
     color: black;
-    /* border: solid rgb(71, 55, 55) 3px; */
 }
 
 .drink-list-item strong {
@@ -50,23 +49,19 @@
     list-style-type: none;
     margin-right: 15px;
     margin-top: 10px;
-    /* float: center; */
     color: black;
 }
 .drink-content {
     clear: both;
-    /* background-color: aqua; */
     display: flex;
     justify-content: space-between
 }
 .ingredient-container {
-    /* border: solid 1px black; */
     display: inline-block;
     width: 40%;
     padding-left: 40px;
 }
 .atr-container {
-    /* border: solid 1px black; */
     display: inline-block;
     width: 60%;
 }

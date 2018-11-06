@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {Welcome} from './welcome';
 import RegistrationForm from './register';
+import Frame from '../images/gold-frame.png';
 import '../css/register.css'
 
 export function RegistrationPage(props) {
@@ -12,8 +13,11 @@ export function RegistrationPage(props) {
     if (props.loggedIn) {
         return <Redirect to="/" />;
     }
+    const style = {
+        borderImage: 'url('+ Frame +') 93 92 87 92 stretch stretch'
+    }
     return (
-        <div className="registration-page">
+        <div style={style} className="registration-page">
             <Welcome/>
             <Link className="log-reg-link" to="/login">Already have an Account? Login here!</Link>
             <RegistrationForm />

@@ -10,6 +10,7 @@ import { loadAuthToken } from '../local-storage';
 import { setAuthToken } from '../actions/auth';
 import SearchBar from './search-bar';
 import Dropdown from './dropdown';
+import Frame from '../images/gold-frame.png';
 import '../css/main.css';
 
 export class Main extends React.Component {
@@ -22,9 +23,12 @@ export class Main extends React.Component {
     }
 
     render() {
+        const style = {
+            borderImage: 'url('+ Frame +') 93 92 87 92 stretch stretch'
+        }
         return (
             <div className="main">
-                <div className="bar-scene">
+                <div className="bar-scene" style={style}>
                     <Navbar />
                     <UserGreeting />
                     <div className="add-search">

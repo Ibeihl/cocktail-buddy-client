@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {Welcome} from './welcome';
 import LoginForm from './login';
+import Frame from '../images/gold-frame.png';
 import '../css/login.css'
 
 export function LoginPage(props) {
@@ -12,8 +13,11 @@ export function LoginPage(props) {
     if (props.loggedIn) {
         return <Redirect to="/" />;
     }
+    const style = {
+        borderImage: 'url('+ Frame +') 93 92 87 92 stretch stretch'
+    }
     return (
-        <div className="login-page">
+        <div style={style} className="login-page">
             <Welcome/>
             <Link className="log-reg-link" to="/register">Don't have an Account? Create One!</Link>
             <LoginForm />
