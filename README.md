@@ -1,4 +1,4 @@
-# Cocktail Library
+# The Cocktail Library
 An app built by bartenders, for bartenders.  Cocktail Library is a great way to easily store and organize cocktail drink recipes.  Whether a seasoned bartender, or just someone who likes experimenting with drink recipes, having a convenient place to keep your recipes is essential.
 
 ## Link to deployed version on Heroku:
