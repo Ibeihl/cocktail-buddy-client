@@ -8,14 +8,14 @@ https://whispering-scrubland-31994.herokuapp.com/
 Users can create an account, then have access to Cocktail Buddy's hand picked selection of classic cocktails.  A user can search through the preexisting drink database and add drinks to favorites.  Users can then add and remove their own drinks to their individual account, and add those to favorites and search through all the drinks.
 
 ## Screenshots
-### Register and Login
-![screen shot 2018-08-17 at 2 04 11 pm](https://user-images.githubusercontent.com/38081935/44288820-7d554f80-a226-11e8-9897-12ce8c84da9b.png)
+### Login
+![screen shot 2018-11-06 at 10 19 41 am](https://user-images.githubusercontent.com/38081935/48084895-c1187f00-e1ad-11e8-87a0-eb8006673e1c.png)
 
 ### Search Drinks
-![screen shot 2018-08-17 at 1 54 46 pm](https://user-images.githubusercontent.com/38081935/44288719-1f286c80-a226-11e8-9d13-2c41b47f5b84.png)
+<img width="1038" alt="screen shot 2018-11-06 at 10 20 38 am" src="https://user-images.githubusercontent.com/38081935/48084954-dee5e400-e1ad-11e8-91e2-d81ede879b57.png">
 
 ### Add Drinks
-![screen shot 2018-08-17 at 1 55 08 pm](https://user-images.githubusercontent.com/38081935/44288847-9cec7800-a226-11e8-9cd1-c60972f0d14b.png)
+<img width="1032" alt="screen shot 2018-11-06 at 10 20 59 am" src="https://user-images.githubusercontent.com/38081935/48084984-f3c27780-e1ad-11e8-95aa-55ac2a231e78.png">
 
 ## Target Audience
 Bartenders that are looking for an easy way to organize drink recipes.  Bar or restaurant managers who want an easy place to store house recipes that can be easily accesses by employees.  Anyone who enjoys making cocktails and needs an easy way to find reliable, delicous drink recipes. 
