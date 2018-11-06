@@ -2,10 +2,12 @@
     margin-top: 15px;
     margin-left: auto;
     margin-left: auto;
-    background-color: #8d96a3;
+    /* background-color: #8d96a3; */
+    background-color: #ffe;
     color: black;
     border-radius: 5px;
     border: solid black 1px;
+    filter:drop-shadow(10px 10px 10px black);
 }
 .drink-form fieldset {
     margin-left: auto;
@@ -13,18 +15,18 @@
 }
 
 @media only screen and (min-width: 500px) {
-    .drink-form {width: 400px;
+    .drink-form {width: 50%;
         margin-left: auto;
         margin-right: auto
     }
 }
 .drink-form legend {
     color: black;
-    background-color: #8d96a3;
+    background-color: #ffe;
     font-size: 18px;
     font-weight: bold;
+    width: 60%;
     height: 20px;
-    width: 280px;
     padding: 7px;
     border-radius: 5px;
     border: solid black 1px;
@@ -32,7 +34,7 @@
 
 .drink-form label {
     margin-bottom: 35px;
-    background-color: #8d96a3;
+    /* background-color: #8d96a3; */
     color: black;
     font-size: 18px;
     font-weight: bold;
@@ -46,7 +48,7 @@
 }
 .ingredient-input {
     display: block;
-    width: 200px;
+    width: 70%;
     margin-right: auto;
     margin-left: auto;
     margin-top: 10px;
@@ -55,7 +57,7 @@
 .drink-form input {
     display: block;
     font-size: 18px;
-    width: 200px;
+    width: 70%;
     height: 25px;
     margin-right: auto;
     margin-left: auto;
@@ -73,11 +75,12 @@
     margin-top: 10px;
 }
 .submit-btn {
-    background-color: #03224f;
+    /* background-color: #03224f; */
     width: 150px;
+    margin: 10px;
     height: 30px;
     font-size: 18px;
-    color: white;
+    /* color: white; */
     border-radius: 5px;
     border: solid black 1px;
 }
