@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { searchDrink, setSearchTerm } from '../actions/drink';
+import { searchDrink } from '../actions/drink';
 import '../css/drink-list.css';
 import { removeDrink } from '../actions/removeDrink';
 import { editFavorite } from '../actions/favorites';

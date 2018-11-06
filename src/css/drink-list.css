@@ -17,6 +17,13 @@
     font-size: 30px;
     color: white;
 }
+@media only screen and (max-width: 500px) {
+    .drink-list-item {
+        width: 100% !important;
+        margin-left: auto;
+        margin-right: auto
+    }
+}
 .drink-list-item {
     background-color: #ffe;
     filter:drop-shadow(10px 10px 10px black);
