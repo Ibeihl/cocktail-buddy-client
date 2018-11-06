@@ -1,0 +1,12 @@
+.user-greeting {
+    padding: 20px;
+    color: black;
+    font-family: 'Arvo', Georgia, Times, serif;
+}
+.user-greeting h1 {
+    font-size: 70px;
+
+}
+.user-greeting p {
+    font-size: 20px;
+}

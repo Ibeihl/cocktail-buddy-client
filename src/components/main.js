@@ -2,12 +2,15 @@ import React from 'react';
 import DrinkList from './drink-list';
 import AddDrink from './add-drink';
 import AddDrinkBtn from './add-drink-btn';
-import UserGreeting from './user-greeting';
+import Navbar from './navbar';
+import UserGreeting from './user-greeting'
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import {loadAuthToken} from '../local-storage';
-import {setAuthToken} from '../actions/auth';
-import './main.css';
+import { loadAuthToken } from '../local-storage';
+import { setAuthToken } from '../actions/auth';
+import SearchBar from './search-bar';
+import Dropdown from './dropdown';
+import '../css/main.css';
 
 export class Main extends React.Component {
     componentDidMount() {
@@ -21,8 +24,15 @@ export class Main extends React.Component {
     render() {
         return (
             <div className="main">
-                <UserGreeting />
-                <AddDrinkBtn />
+                <div className="bar-scene">
+                    <Navbar />
+                    <UserGreeting />
+                    <div className="add-search">
+                        <AddDrinkBtn />
+                        <SearchBar />
+                        <Dropdown />
+                    </div>
+                </div>
                 <AddDrink />
                 <DrinkList />
             </div>

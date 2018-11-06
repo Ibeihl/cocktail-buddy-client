@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {UserGreeting} from './user-greeting';
+import {UserGreeting} from '../components/user-greeting';
 
 describe('<UserGreeting />', () => {
     it('renders without crashing', () => {

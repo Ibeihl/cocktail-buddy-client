@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {AddDrink} from './add-drink';
+import Header from '../components/header';
 
-describe('<AddDrink />', () => {
+describe('<Header />', () => {
     it('renders without crashing', () => {
-        shallow(<AddDrink />);
+        shallow(<Header />);
     });
 })

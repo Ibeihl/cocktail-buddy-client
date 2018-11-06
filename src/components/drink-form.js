@@ -1,11 +1,11 @@
 import React from 'react';
-import './drink-form.css';
 import {Field, reduxForm} from 'redux-form';
 import {addDrink} from '../actions/addDrink';
 import {required} from '../validators';
 import {connect} from 'react-redux';
 import Input from './input';
-import './drink-form.css';
+import TextArea from './textarea';
+import '../css/drink-form.css';
 import { toggleAddDrink } from '../actions/toggle-add';
 
 export class DrinkForm extends React.Component {
@@ -20,6 +20,9 @@ export class DrinkForm extends React.Component {
         let ingredients = inputIngredients.filter(ingredient => ingredient !== undefined);
         const newDrink = {name, method, eggWhite, glass, ingredients, instructions, photo, user};
         this.props.dispatch(addDrink(newDrink));
+        this.props.dispatch(toggleAddDrink());
+    }
+    handleCloseForm() {
         this.props.dispatch(toggleAddDrink());
     }
 
@@ -68,7 +71,7 @@ export class DrinkForm extends React.Component {
                     </div>
                     <div className="drink-atr">
                         <label htmlFor="instructions">Instructions:</label>
-                        <Field component={Input} className="instructions-input" name="instructions" htmlFor="instructions" type="text" id="instructions" 
+                        <Field component={TextArea} rows="10" className="instructions-input textarea" name="instructions" htmlFor="instructions" type="text" id="instructions" 
                             placeholder="Shake, strain over rocks, garnish with lemon twist"
                             validate={required}/>
                     </div>
@@ -77,6 +80,7 @@ export class DrinkForm extends React.Component {
                         <Field component={Input} className="ingredient-input" name="photo" htmlFor="photo" type="text" id="photo"/> 
                     </div>
                     <button className="submit-btn" type="submit">Add Drink</button>
+                    <button onClick={() => this.handleCloseForm()} className="submit-btn" type="button">Close Form</button>
                 </fieldset>
             </form>
         )

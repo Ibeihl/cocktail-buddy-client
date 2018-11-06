@@ -1,5 +1,12 @@
 body {
-  margin: 0;
+  margin: 0 auto 0 auto;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Arvo', Georgia, Times, serif;
+  text-align: center;
+  max-width: 1600px;
+  background: repeat;
+  background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=31b0b078f5da0a750f05e27c6d9df39b&auto=format&fit=crop&w=1153&q=80")
+}
+button:hover {
+  background-color: darkgray;
 }

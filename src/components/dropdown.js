@@ -16,7 +16,7 @@ export class Dropdown extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="dropdown">
                 <label htmlFor="dropdown">Choose Category:</label>
             <select onChange={(e) => this.handleDropdown(e)} className="dropdown">
                 <option value="all">All</option>

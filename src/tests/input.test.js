@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import Footer from './footer';
+import {Input} from '../components/input';
 
-describe('<Footer />', () => {
+describe('<Input />', () => {
     it('renders without crashing', () => {
-        shallow(<Footer />);
+        shallow(<Input />);
     });
 })

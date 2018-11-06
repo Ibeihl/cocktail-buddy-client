@@ -1,19 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { searchDrink, setSearchTerm } from '../actions/drink';
-import './drink-list.css';
-import {removeDrink} from '../actions/removeDrink';
+import '../css/drink-list.css';
+import { removeDrink } from '../actions/removeDrink';
 import { editFavorite } from '../actions/favorites';
-import Dropdown from './dropdown';
 
 export class DrinkList extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
         let currentUser = this.props.currentUser.username;
         let displayCatQuery = `&displayCat=${this.props.displayCat}`
         this.props.dispatch(searchDrink(currentUser, displayCatQuery))
     }
     handleDelete(e) {
-        let drinkId = e.target.id; 
+        let drinkId = e.target.id;
         let displayCatQuery = `&displayCat=${this.props.displayCat}`
         this.props.dispatch(removeDrink(drinkId));
         this.props.dispatch(searchDrink(this.props.currentUser.username, displayCatQuery));
@@ -52,91 +51,74 @@ export class DrinkList extends React.Component {
             }
             if (drink.user === this.props.currentUser.username) {
                 deleteButton =
-                <button className="list-btn" id={drink.id} onClick={(e) => this.handleDelete(e)}>Remove Drink</button>
+                    <button className="list-btn" id={drink.id} onClick={(e) => this.handleDelete(e)}>Remove Drink</button>
 
             }
             if (drink.photo === '' || undefined) {
-                drink.photo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAunt6FN4pSgVTgZtg7KE616V4QrKhf6sM-LzxSHze-kDIzsaQ";
+                drink.photo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAunt6FN4pSgVTgZtg7KE616V4QrKhf6sM-LzxSHze-kDIzsaQ";
             }
             return (
-                <li key={drink.id} id={drink.id} className="drink-list-item">
+                <div key={drink.id} id={drink.id} className="drink-list-item">
                     <img className="result-img" src={drink.photo} alt={drink.name} />
                     <h2>{drink.name}</h2>
-                        <em> {userFavorite}</em>
-                    <div>
-                    <ul className="ingredient-list">
-                        <h3 className="ingredient-header">Ingredients</h3>
-                        {ingredients}
-                    </ul>
+                    <em> {userFavorite}</em>
+                    <div className="drink-content">
+                        <div className="ingredient-container">
+                            <ul className="ingredient-list">
+                                <h3 className="ingredient-header">Ingredients</h3>
+                                {ingredients}
+                            </ul>
+                        </div>
+                        <div className="atr-container">
+                            <ul className="drink-atr">
+                                <li><strong>Style: </strong>{drink.method}</li>
+                                <li><strong>Has Egg White: </strong>{drink.eggWhite}</li>
+                                <li><strong>Glass: </strong>{drink.glass}</li>
+                                <li><strong>Instructions: </strong>{drink.instructions}</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul className="drink-atr">
-                        <li><strong>Style: </strong>{drink.method}</li>
-                        <li><strong>Has Egg White: </strong>{drink.eggWhite}</li>
-                        <li><strong>Glass: </strong>{drink.glass}</li>
-                        <li><strong>Instructions: </strong>{drink.instructions}</li>
-                    </ul>
                     {deleteButton}
                     <button className="list-btn" id={userFavorite} onClick={e => this.handleFavorite(e)}>Favorite</button>
-                </li>
+                </div>
             )
         }
         );
         let drinkCount;
-        if (this.props.drinks.length === 0){
-            drinkCount = <h4>no drinks found</h4>;
-        } else if (this.props.drinks.length === 1){
-            drinkCount = <h4>{this.props.drinks.length} drink found</h4>
+        if (this.props.drinks.length === 0) {
+            drinkCount = <h4 className="drink-count">no drinks found</h4>;
+        } else if (this.props.drinks.length === 1) {
+            drinkCount = <h4 className="drink-count">{this.props.drinks.length} drink found</h4>
         } else {
-            drinkCount = <h4>{this.props.drinks.length} drinks found</h4>
+            drinkCount = <h4 className="drink-count">{this.props.drinks.length} drinks found</h4>
         }
         return (
             <div className="drink-results">
-               {drinkCount}
-                <ul className="main-results">
+                {drinkCount}
+                <div className="main-results">
                     {drinks}
-                </ul>
+                </div>
             </div>
         );
     }
 
-    search(e) {
-        e.preventDefault();
-        if (this.input.value.trim() === '' || this.input.value.trim() === undefined) {
-            return;
-        }
-        this.props.dispatch(setSearchTerm(this.input.value));
-        this.props.dispatch(searchDrink(this.props.currentUser.username,
-            `&search=${this.input.value}`, `&displayCat=${this.props.displayCat}`));
-    }
-
     render() {
         return (
-            <div className="drink-search">
-                <span>
-                <form onSubmit={(e) => this.search(e)}>
-                    <input className="search-input" type="search"
-                        ref={input => this.input = input} 
-                        placeholder="keyword"/>
-                    <button className="search-button">Search</button>
-                </form>
-                < Dropdown />
-                </span>
-                <ul className="drink-results">
-                    {this.renderResults()}
-                </ul>
+            <div className="drink-results">
+                {this.renderResults()}
             </div>
-                );
-            }
-        };
-        
+        );
+    }
+};
+
 const mapStateToProps = state => ({
-            loading: state.drink.loading,
-            error: state.drink.error,
-            drinks: state.drink.drinks,
-            loggedIn: state.auth.authToken,
-            authToken: state.auth.authToken,
-            currentUser: state.auth.currentUser,
-            displayCat: state.drink.displayCat
-        });
-        
+    loading: state.drink.loading,
+    error: state.drink.error,
+    drinks: state.drink.drinks,
+    loggedIn: state.auth.authToken,
+    authToken: state.auth.authToken,
+    currentUser: state.auth.currentUser,
+    displayCat: state.drink.displayCat
+});
+
 export default connect(mapStateToProps)(DrinkList);

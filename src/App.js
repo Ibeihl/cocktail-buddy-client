@@ -1,14 +1,13 @@
 import React from 'react';
-import './App.css';
-import Header from './components/header';
 import Footer from './components/footer';
 import Main  from './components/main';
-import RegistrationPage from './components/registration-page';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {refreshAuthToken} from './actions/auth';
 import {connect} from 'react-redux';
 import {storeAuthInfo} from './actions/auth';
 import {loadAuthToken} from './local-storage';
+import RegistrationPage from './components/registration-page';
+import LoginPage from './components/login-page';
 
 export class App extends React.Component {
   componentDidMount(){
@@ -53,10 +52,10 @@ export class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          < Header />
           <main>           
             <Route exact path='/' component={Main} />
-            <Route path='/login' component={RegistrationPage} />
+            <Route path='/login' component={LoginPage} />
+            <Route path='/register' component={RegistrationPage}/>
             <Footer />
           </main>
         </div>
