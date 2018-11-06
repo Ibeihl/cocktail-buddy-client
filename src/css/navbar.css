@@ -12,3 +12,11 @@
     font-size: 18px;
     padding: px;
 }
+@media only screen and (max-width: 500px) {
+    .nav li {
+        font-size: 16px;
+    }
+    .nav button {
+        font-size: 14px;
+    }
+}

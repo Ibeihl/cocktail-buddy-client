@@ -13,6 +13,10 @@ export function RegistrationPage(props) {
     if (props.loggedIn) {
         return <Redirect to="/" />;
     }
+    let loading;
+    if (props.loading) {
+        loading = <h3>Logging in...</h3>
+    }
     const style = {
         borderImage: 'url('+ Frame +') 93 92 87 92 stretch stretch'
     }
@@ -21,12 +25,14 @@ export function RegistrationPage(props) {
             <Welcome/>
             <Link className="log-reg-link" to="/login">Already have an Account? Login here!</Link>
             <RegistrationForm />
+            {loading}
         </div>
     );
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    loading: state.auth.loading
 });
 
 export default connect(mapStateToProps)(RegistrationPage);

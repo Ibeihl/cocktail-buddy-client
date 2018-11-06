@@ -17,6 +17,13 @@
     font-size: 30px;
     color: white;
 }
+@media only screen and (min-width: 500px) {
+    .drink-list-item {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto
+    }
+}
 .drink-list-item {
     background-color: #ffe;
     filter:drop-shadow(10px 10px 10px black);
@@ -26,7 +33,7 @@
     padding-left: 0px;
     text-align: left;
     overflow: auto;
-    width: 70%;
+    width: 100%;
     cursor: pointer;
     display: block;
     color: black;
