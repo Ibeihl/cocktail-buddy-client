@@ -10,7 +10,8 @@
 }
 .nav button {
     font-size: 18px;
-    padding: px;
+    width: auto;
+    /* padding: 10px; */
 }
 @media only screen and (max-width: 500px) {
     .nav li {

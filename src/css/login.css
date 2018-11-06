@@ -13,6 +13,7 @@
     .login-page {
         border-width: 48px;
         padding: 0;
+        margin-top: 10px;
     }
     .login-page fieldset {
         margin: 0;
@@ -23,6 +24,7 @@
     }
     .login-page input {
         font-size: 14px;
+        border: black solid 1px;
     }
 }
 .log-reg-link {
@@ -64,6 +66,9 @@ legend {
 }
 button {
     width: 80px;
+    background-color: #4C3503;
+    color: white;
+    font-weight: bold;
     height: 30px;
     font-size: 15px;
     border-radius: 5px;

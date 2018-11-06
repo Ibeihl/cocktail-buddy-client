@@ -1,18 +1,22 @@
 .add-search {
     display: inline-block;
-    /* background-color: rgb(60, 61, 61); */
     padding: 20px;
+}
+.add-search input {
+    border: black solid 1px;
 }
 .dropdown {
     display: inline-block;
     margin: 10px;
     color: white;
-    color: black;
+    color: black
 }
+
 .dropdown select {
     width: 200px;
     height: 30px;
     font-size: 14px;
+    border: black solid 1px;
 }
 .add-button {
     display: inline-block;
@@ -28,6 +32,9 @@
 }
 button {
     text-align: center;
+    background-color: #4C3503;
+    color: white;
+    font-weight: bold;
 }
 .bar-scene {
     padding: 10px;
@@ -44,6 +51,7 @@ button {
     .bar-scene {
         border-width: 48px;
         padding: 0;
+        margin-top: 10px;
     }
     .bar-scene fieldset {
         margin: 0;
